@@ -1,0 +1,552 @@
+<!--meta title=종합관리 사용법|logo=종|hint=숫자 입력, 보정 기한, 칸 맞추기, 회수 자료, 백업|chips=숫자 입력,보정 기한,엑셀 넣기,회사 양식,칸 맞추기,값 맞추기,세무서 미압류,압류 판단,시연 판,백업-->
+{{HEAD}}
+
+<!-- ================================================================== 표지 -->
+<div class="cover" id="top-cover"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <div class="k">채권관리 통합 프로그램</div>
+  <h1>종합관리 사용법</h1>
+  <p>사건 조회부터 확인할 것 · 보정 · 서류 작성 · 회생·파산 · 배당 · 회수 분석까지, 화면과 함께 처음부터 끝까지 설명해요. 처음 쓰는 분은 1장부터, 궁금한 것만 찾을 때는 위쪽 찾기 칸에 말을 넣어 보세요.</p>
+  <div class="flow">
+    <a href="#c2"><i>2</i><b>사건 조회</b><span>나의사건검색으로 진행을 한꺼번에</span></a>
+    <a href="#c3"><i>3</i><b>확인할 것 · 기한</b><span>보정 · 선고 · 확정 · 기일을 모아서</span></a>
+    <a href="#c7"><i>7</i><b>송달 · 보정</b><span>보정 기한 계산과 처리</span></a>
+    <a href="#c9"><i>9</i><b>서류 작성</b><span>회사 양식 PDF에 값만 채우기</span></a>
+    <a href="#c5"><i>5</i><b>경매 사건</b><span>법원경매정보 문건 · 매각기일</span></a>
+    <a href="#dv-c1"><i>10</i><b>배당기일</b><span>배당 조회 · 매칭 · 대장 · 통계</span></a>
+    <a href="#rc-c0"><i>14</i><b>회수 분석</b><span>회수 자료 넣기 · 놓친 것 · 압류 판단 · 계획</span></a>
+    <a href="#c25"><i>25</i><b>설정</b><span>규칙 · 메뉴 · 백업 · 연결 기준</span></a>
+  </div>
+  <div class="meta">종합관리 v{{VERSION}} 기준 · 만든 날 {{DATE}} · 화면 속 이름 · 번호는 모두 시연용 가짜 자료예요</div>
+</div>
+
+<div class="print-toc"><h2>차례</h2><ol id="ptocl"></ol></div>
+
+<!-- ================================================================== 무엇을 하고 싶나요 -->
+<section class="ch" id="c0">
+<h2><span class="no">★</span> 무엇을 하고 싶나요?</h2>
+<p class="lead">하고 싶은 일을 누르면 바로 그 설명으로 가요.</p>
+<div class="grid3">
+  <a class="card" href="#c2-1"><b>사건 진행을 조회하고 싶어요</b>조회하기 → 숫자 6개 입력</a>
+  <a class="card" href="#c3-1"><b>오늘 처리할 것을 보고 싶어요</b>확인할 것 · 오늘 할 것만</a>
+  <a class="card" href="#c3-2"><b>기일 · 기한을 달력으로</b>기일·기한</a>
+  <a class="card" href="#c4-3"><b>엑셀로 사건을 한꺼번에 넣기</b>사건 대장 → 엑셀로 추가·갱신</a>
+  <a class="card" href="#c7-1"><b>보정 기한을 관리하고 싶어요</b>송달·보정 관리</a>
+  <a class="card" href="#c9-3"><b>회사 양식으로 서류 만들기</b>서류 작성 → 서류 만들기</a>
+  <a class="card" href="#c9-6"><b>지급명령 신청서 만들기</b>서류 작성 → 기본 서류</a>
+  <a class="card" href="#c8-1"><b>회생 · 파산 사건 확인</b>회생·파산 → 관리 가부</a>
+  <a class="card" href="#c5-1"><b>경매 사건 문건 · 매각기일</b>경매 사건</a>
+  <a class="card" href="#dv-c1-1"><b>배당기일 조회 · 키 매칭</b>배당기일 → 조회 · 매칭</a>
+  <a class="card" href="#rc-c1-3"><b>회수 원자료 넣기 · 칸 맞추기</b>자료 → 회수 자료 넣기</a>
+  <a class="card" href="#rc-c3-1"><b>놓친 돈 · 시효 임박 찾기</b>회수 분석 → 놓친 것·할 것</a>
+  <a class="card" href="#rc-c4-2"><b>어느 은행에 얼마 압류할지</b>회수 분석 → 압류 판단</a>
+  <a class="card" href="#rc-c5-1"><b>이번 달 법조치 계획</b>회수 분석 → 법조치 계획</a>
+  <a class="card" href="#c24-2"><b>월간 보고서 · 엑셀</b>월간 보고서</a>
+  <a class="card" href="#c25-6"><b>백업 · 자료 위치 · 자동 실행</b>설정 → 시작 · 저장 · 백업</a>
+</div>
+</section>
+
+<!-- ================================================================== 1. 처음 시작하기 -->
+<section class="ch" id="c1">
+<h2><span class="no">1</span> 처음 시작하기</h2>
+<p class="lead">설치 없이 exe 하나로 실행해요. 화면 구성과 어느 화면에서나 쓰는 기능을 먼저 봐요.</p>
+
+<h3 id="c1-1">1-1. 실행하기</h3>
+<ol class="steps">
+  <li><span class="n">1</span><div>공용폴더의 <b>「종합관리.exe」</b>를 두 번 눌러요. 설치는 없어요.</div></li>
+  <li><span class="n">2</span><div>처음 한 번은 준비하느라 <b>10초쯤</b> 걸리고, 바탕화면에 <b>[종합관리]</b> 아이콘이 생겨요. 다음부터는 그 아이콘으로 켜요. (받은 exe는 지워도 돼요)</div></li>
+  <li><span class="n">3</span><div>"Windows의 PC 보호" 파란 창이 뜨면 <b>「추가 정보」 → 「실행」</b>. 회사 보안 프로그램이 막으면 전산 담당자에게 문의해 주세요.</div></li>
+</ol>
+<div class="call tip"><b class="t">새 판</b><div>새 판 exe를 받으면 그 exe를 한 번 실행하세요. 자료는 그대로 남고 화면만 새것으로 바뀌어요. 왼쪽 아래에 판 번호(v{{VERSION}})가 보여요.</div></div>
+
+<h3 id="c1-2">1-2. 화면 구성 · 현황 콘솔</h3>
+<p>프로그램을 켜면 처음 나오는 화면이에요. 오늘 챙길 것이 숫자로 모여 있어요.</p>
+<figure><img src="{{img:g01_console}}" alt="현황 콘솔"><figcaption>현황 콘솔 (첫 화면)</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>채권 고르기</b>: 지금 보는 채권 이름이에요. 채권마다 사건 대장 · 결과 · 할 일이 따로 쌓여요. (<a href="#c1-3">1-3</a>)</div></li>
+  <li><span class="n">2</span><div><b>찾기</b> (<kbd>Ctrl</kbd>+<kbd>K</kbd>): 화면 · 사건번호 · 당사자 · 채무자 · 할 일을 바로 찾아가요. (<a href="#c1-4">1-4</a>)</div></li>
+  <li><span class="n">3</span><div><b>숫자 칸</b>: 확인할 것 · 보정 기한 3일 안 · 회생·파산 멈춤 · 이번 주 만든 서류. 누르면 그 화면으로 가요.</div></li>
+  <li><span class="n">4</span><div><b>업무 흐름</b>: ① 조회 → ② 판단 → ③ 보정 관리 → ④ 서류 → ⑤ 기한. 단계마다 건수가 보이고 누르면 그 화면이에요.</div></li>
+  <li><span class="n">5</span><div><b>둘러보기</b>: 주요 화면을 차례로 짚어 주는 안내예요. 처음이면 한 번 눌러 보세요.</div></li>
+</ol>
+<p>가운데 <b>배당 할 일</b>은 배당기일 장(<a href="#dv-c1">10장</a>)에서 설명해요.</p>
+<figure><img src="{{img:g02_console_lower}}" alt="오늘 할 것 · 작업 기록"><figcaption>아래로 내리면 — <span class="n">1</span>오늘 할 것 <span class="n">2</span>작업 기록</figcaption></figure>
+<ul>
+  <li><span class="n">1</span> <b>오늘 할 것</b>: 기한이 오늘이거나 지난 것, 새로 들어온 것. 「자세히」로 사건을 열고, 「모두 보기」는 확인할 것 화면이에요.</li>
+  <li><span class="n">2</span> <b>작업 기록</b>: 조회 끝 · 보정 등록 · 서류 저장 · 엑셀 넣기처럼 이 PC에서 한 일이 시간순으로 남아요. 누르면 그 화면으로 가요.</li>
+</ul>
+<div class="call tip"><b class="t">첫 화면 바꾸기</b><div>설정 → 확인할 것 · 기한 → 「프로그램 켤 때 첫 화면」에서 확인할 것 · 조회하기 등으로 바꿀 수 있어요.</div></div>
+
+<h3 id="c1-3">1-3. 채권 고르기 · 만들기</h3>
+<figure><img src="{{img:g03_book}}" alt="채권 고르기"><figcaption>왼쪽 위 채권 이름을 누르면 나오는 목록</figcaption></figure>
+<ul>
+  <li>목록에서 채권을 누르면 그 채권으로 바뀌어요. 오른쪽 숫자는 사건 수예요.</li>
+  <li><b>+ 새 채권 만들기</b>: 이름(예: ○○캐피탈 2025-1차)을 넣으면 빈 채권이 생겨요.</li>
+  <li><b>채권 이름 바꾸기 · 지우기</b>도 여기서 해요.</li>
+</ul>
+<div class="call warn"><b class="t">알아 두기</b><div>사건 대장 · 조회 결과 · 확인할 것 · 조회 기록 · 배당 대장은 <b>채권마다 따로</b>, 설정 · 양식 · 회사 정보 · 기준표는 <b>모든 채권이 함께</b> 써요. 엑셀로 저장하면 파일 이름 앞에 채권 이름이 붙어요.</div></div>
+
+<h3 id="c1-4">1-4. 찾기 (Ctrl K)</h3>
+<figure><img src="{{img:g04_find}}" alt="찾기"><figcaption>이름 · 사건번호 · 화면 이름을 치면 바로 나와요</figcaption></figure>
+<p>어느 화면에서든 <kbd>Ctrl</kbd>+<kbd>K</kbd> 또는 왼쪽 위 <b>⌕ 찾기</b>. 사건번호 · 당사자 · 채무자 · 계좌번호 · 화면 이름 · 할 일(「보정 직접 등록」 「엑셀 넣기」 등)을 찾아요. <kbd>↑</kbd><kbd>↓</kbd>로 고르고 <kbd>Enter</kbd>로 열어요.</p>
+
+<h3 id="c1-5">1-5. 왼쪽 메뉴 · 뒤로 · 밝기</h3>
+<figure><img src="{{img:g05_nav}}" alt="왼쪽 메뉴"><figcaption>메뉴 묶음 — 묶음 이름을 누르면 접고 펴져요</figcaption></figure>
+<div class="tw"><table>
+<tr><th>묶음</th><th>들어 있는 화면</th></tr>
+<tr><td><span class="n">1</span>자주 쓰는 것</td><td>현황 콘솔 · 확인할 것 · 조회하기 · 송달·보정 관리 · 서류 작성</td></tr>
+<tr><td><span class="n">2</span>사건 · 경매</td><td>기일·기한 · 사건 대장 · 경매 사건</td></tr>
+<tr><td><span class="n">3</span>법조치</td><td>법조치 현황 · 채무자 원장 · 회생·파산</td></tr>
+<tr><td><span class="n">4</span>배당기일</td><td>조회 · 매칭 · 배당기일 현황 · 배당 관리 대장 · 배당 통계</td></tr>
+<tr><td>회수 분석</td><td>회수 현황 · 놓친 것·할 것 · 압류 판단 · 법조치 계획 · 분석 (<a href="#rc-c0-2">14-2</a>)</td></tr>
+<tr><td>자료</td><td>엑셀 넣기 · 조회 기록 · 결과 · 월간 보고서 · 회수 자료 넣기</td></tr>
+<tr><td>설정</td><td>기준표 (법령 값) · 설정 · 회수 분석 기준</td></tr>
+</table></div>
+<ul>
+  <li>메뉴 옆 숫자(빨강 · 회색)는 처리할 건수예요.</li>
+  <li>어느 화면이든 제목 위 <b>‹ 뒤로</b>, <kbd>Alt</kbd>+<kbd>←</kbd>, 마우스 뒤로 단추로 앞 화면으로 돌아가요.</li>
+  <li><span class="n">5</span> <b>☀ 밝게 · ☾ 어둡게</b>로 화면 밝기를 바꿔요.</li>
+  <li>메뉴 순서 · 묶음 이름 · 숨기기는 <a href="#c25-4">설정 → 메뉴 구성</a>에서 바꿔요.</li>
+</ul>
+</section>
+
+<!-- ================================================================== 2. 사건 조회 -->
+<section class="ch" id="c2">
+<h2><span class="no">2</span> 사건 조회하기</h2>
+<p class="lead">대법원 나의사건검색으로 사건 진행을 조회해요. 사람은 그림 속 숫자만 넣고, 나머지(결과 저장 · 상태 판단 · 할 일 만들기)는 프로그램이 해요.</p>
+
+<h3 id="c2-1">2-1. 조회할 사건 넣기</h3>
+<figure><img src="{{img:g06_pick}}" alt="조회하기"><figcaption>조회하기 — 세 가지 방법</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>직접 입력해서 조회</b>: 법원 · 사건번호 · 당사자 이름을 넣고 <span class="btn p">바로 조회 →</span>. 「여러 건 붙여넣기」로 엑셀에서 복사한 여러 줄도 한 번에. 「사건 대장에 남기기」를 끄면 조회 후 보관함으로 가요.</div></li>
+  <li><span class="n">2</span><div><b>엑셀 넣어서 대량 조회</b>: 엑셀 파일을 이 창에 끌어다 놓으면 법원 · 사건번호 · 당사자 칸을 <b>자동으로</b> 찾아요. 칸 이름이 달라도, 머리글이 없어도 값을 보고 찾고, 틀리면 직접 고를 수 있어요. 「양식 받기」로 빈 양식도 받아요.</div></li>
+  <li><span class="n">3</span><div><b>사건 대장에서 조건으로 조회</b>: 쌓인 사건 중 조건을 켜서 골라요.
+    <ul><li>확정 · 종결된 사건 빼기 · 최근 n일 안에 조회한 사건 빼기</li><li>진행이 n개월 넘게 없는 사건은 n일에 한 번만</li><li>기일이 n일 안에 있는 사건 먼저 · 담당자 · 법원 고르기</li></ul>
+    조건 옆 <span class="tag r">−2</span> 같은 숫자는 그 조건으로 빠지는 건수예요. 자주 쓰는 조건은 「+ 저장」.</div></li>
+  <li><span class="n">4</span><div><span class="btn p">39건 조회 →</span> 몇 건, 약 몇 분 걸리는지 보여 주고 시작해요.</div></li>
+  <li><span class="n">5</span><div><span class="btn">↺ 초기화</span> 넣은 것과 하던 조회를 비우고 처음부터.</div></li>
+</ol>
+
+<h3 id="c2-2">2-2. 조회 중 (숫자 입력)</h3>
+<figure><img src="{{img:g07_run}}" alt="조회 중"><figcaption>숫자를 치면 바로 조회되고, 결과가 같은 화면에 나와요</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>그림 속 숫자 6개</b>를 치면 <kbd>Enter</kbd> 없이 바로 조회되고 다음 사건으로 넘어가요. 숫자가 6개가 아니면 <kbd>Enter</kbd>를 누르세요. 그 개수를 기억해서 다음부터는 바로 조회돼요.</div></li>
+  <li><span class="n">2</span><div><b>새 그림</b> <kbd>F5</kbd> · <b>소리로 듣기</b> <kbd>F6</kbd> · <b>건너뛰기</b> <kbd>Esc</kbd></div></li>
+  <li><span class="n">3</span><div>방금 조회한 사건의 <b>진행내용</b>(새로 생긴 줄은 빨간 굵은 글씨) · 일반내용 · 당사자가 바로 아래에 나와요. 「사건 상세」로 전체를 봐요.</div></li>
+  <li><span class="n">4</span><div><b>오른쪽 목록</b>: 진행률 · 이번 조회 결과 · 다음 차례. 체크해서 「선택 삭제」, 「비우기」, 다음 차례의 ✕로 남은 사건 빼기. 「오른쪽 목록 접기 ›」로 결과를 넓게 봐요.</div></li>
+  <li><span class="n">5</span><div><span class="btn">⏸ 멈추기</span> 멈춰도 <a href="#c2-3">조회 기록</a>에서 이어서 할 수 있어요.</div></li>
+  <li><span class="n">6</span><div><span class="btn">엑셀로 저장</span> 이번 조회 결과를 엑셀로. 옆 「확인할 것」으로 새로 생긴 할 일을 봐요.</div></li>
+</ol>
+<div class="call warn"><b class="t">주의</b><div>자동입력방지 숫자는 프로그램이 풀지 않아요. 사람이 넣어야 해요. 사건 사이 쉬는 시간(기본 1초)을 너무 줄이면 법원 사이트가 접속을 막을 수 있어요.</div></div>
+<div class="call warn"><b class="t">확인</b><div>나의사건검색 안내문에 "상업적 용도 · 다량 저장 · 재가공 목적 사용 금지"가 있어요. 회사에서 이렇게 써도 되는지 미리 확인해 주세요.</div></div>
+
+<h3 id="c2-3">2-3. 조회 기록 · 이어서 하기</h3>
+<figure><img src="{{img:g13_hist}}" alt="조회 기록"><figcaption>조회한 회차마다 한 칸</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>회차 칸</b>: 언제 · 무슨 조회(정기 · 배당 · 회생·파산 · 경매) · 몇 건 · 새 진행 · 찾을 수 없음 · 걸린 시간. 멈춘 조회는 <span class="btn p">이어서 조회</span>가 보여요.</div></li>
+  <li><span class="n">2</span><div><span class="btn">결과</span> 그 회차 결과 보기 (<a href="#c2-4">2-4</a>).</div></li>
+  <li><span class="n">3</span><div><span class="btn">엑셀</span> 그 회차 결과를 엑셀로.</div></li>
+</ol>
+
+<h3 id="c2-4">2-4. 결과 보기</h3>
+<figure><img src="{{img:g14_result}}" alt="결과 보기"><figcaption>회차별 결과</figcaption></figure>
+<p><span class="n">1</span>위에서 회차를 고르고, <span class="n">2</span>전체 · 달라짐 · 확정 · 찾을 수 없음으로 걸러 봐요. 줄을 누르면 진행내용이 펼쳐져요. 오른쪽 위 「엑셀로 저장」.</p>
+</section>
+
+<!-- ================================================================== 3. 확인할 것 · 기일·기한 -->
+<section class="ch" id="c3">
+<h2><span class="no">3</span> 확인할 것 · 기일·기한</h2>
+<p class="lead">조회 결과에서 사람이 챙겨야 할 것(보정명령 · 송달불능 · 선고 · 확정 · 기일 · 경매 · 회생·파산 · 시효)만 모아요.</p>
+
+<h3 id="c3-1">3-1. 확인할 것</h3>
+<figure><img src="{{img:g08_home}}" alt="확인할 것"><figcaption>확인할 것</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>큰 숫자 칸</b>: 판결 선고 · 기일 · 보정명령 · 확정 예상. 가장 급한 남은 날(<span class="tag r">53일 지남</span> <span class="tag o">D-1</span>)도 같이 보여요.</div></li>
+  <li><span class="n">2</span><div><b>묶음</b>: 모두 · 사건 조회 · 보정·송달 · 경매 · 회생·파산 · 시효. <b>오늘 할 것만</b>을 켜면 기한이 오늘이거나 지난 것, 새로 들어온 것, 기한을 넣어야 하는 것만 보여요. 고른 것은 다음에도 기억해요.</div></li>
+  <li><span class="n">3</span><div><b>종류별 거르기</b>: 보정명령 · 확정 예상 · 송달불능 · 회생 멈춤 확인 · 기일 · 매각기일 · 시효 임박 · 판결 선고 · 경매 새 문건 …</div></li>
+  <li><span class="n">4</span><div><b>할 일 한 줄</b>: 사건번호 · 당사자 · 무슨 일 · 법원 · 메모 · 남은 날. 왼쪽 <b>✓</b>를 눌러 처리하고, 「기한 넣기」 「자세히」로 바로 처리해요.</div></li>
+  <li><span class="n">5</span><div><span class="btn">처리한 것 보기</span> 처리한 것도 다시 볼 수 있어요.</div></li>
+</ol>
+<div class="call warn"><b class="t">예상</b><div>「예상」이 붙은 기한은 진행 날짜에 정해진 날수를 더한 것이에요(예: 판결 송달 + 14일 = 확정 예상). 실제 기한은 명령서 · 송달증명으로 확인해 주세요. 날수는 <a href="#c25-1">설정 → 상태 분류 규칙</a>에서 바꿔요.</div></div>
+
+<h3 id="c3-2">3-2. 기일·기한 달력</h3>
+<figure><img src="{{img:g09_cal}}" alt="기일·기한"><figcaption>변론 · 선고 · 보정 기한 · 매각기일이 한 달력에</figcaption></figure>
+<ul>
+  <li><span class="n">1</span> <span class="btn p">+ 기한 직접 넣기</span> 진행내용에 날짜가 없는 기한(명령서에만 있는 보정 기한 등)을 직접 넣어요.</li>
+  <li><span class="n">2</span> <b>달력</b>: 색으로 구분 — 변론·심문 기일 · 선고·확정 예상 · 기한·보정 · 경매 매각. 날짜를 누르면 오른쪽에 그날 일정이 나와요.</li>
+  <li><b>오른쪽</b>: 그날 일정, <b>보정 기한</b> 목록(D-2 등)에서 바로 「완료」, 보정명령 받은 날을 아직 안 넣은 「기한 없음」.</li>
+  <li>끝날이 토 · 일 · 공휴일이면 다음 평일로 계산해요.</li>
+</ul>
+</section>
+
+<!-- ================================================================== 4. 사건 대장 -->
+<section class="ch" id="c4">
+<h2><span class="no">4</span> 사건 대장</h2>
+<p class="lead">프로그램 안에 보관하는 사건 목록이에요. 조회할 때마다 상태 · 마지막 진행 · 다음 기일이 바뀌어요.</p>
+
+<h3 id="c4-1">4-1. 목록 보기</h3>
+<figure><img src="{{img:g10_ledger}}" alt="사건 대장"><figcaption>사건 대장</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>찾기</b>: 사건번호 · 이름 · 메모로 찾아요. 위의 상태 칸(진행 중 · 판결 선고 · 조회 전 · 금지 …)을 누르면 걸러져요.</div></li>
+  <li><span class="n">2</span><div><span class="btn p">엑셀로 추가·갱신</span> (<a href="#c4-3">4-3</a>)</div></li>
+  <li><span class="n">3</span><div><span class="btn">+ 한 건 넣기</span> 한 건씩 직접.</div></li>
+  <li><span class="n">4</span><div><b>체크</b>해서 여러 건을 골라요 (<a href="#c4-2">4-2</a>).</div></li>
+  <li><span class="n">5</span><div><b>사건 줄을 누르면</b> 사건 상세가 열려요 (<a href="#c4-4">4-4</a>). 상태 옆 <span class="tag r">새 1</span>은 새로 생긴 진행이에요.</div></li>
+</ol>
+<p>칸: 사건(법원 · 당사자) · 사건명 · 상태 · 마지막 진행 · 다음 기일 · 마지막 조회 · 담당 · 메모. 오른쪽 위 「보관함」에 끝난 사건을 옮겨 둘 수 있어요.</p>
+
+<h3 id="c4-2">4-2. 여러 건 한꺼번에</h3>
+<figure><img src="{{img:g11_ledger_sel}}" alt="여러 건 고르기"><figcaption>체크하면 위에 막대가 생겨요</figcaption></figure>
+<p><span class="n">1</span> 고른 건으로: <span class="btn">지금 조회</span> <span class="btn">엑셀로 저장</span> <span class="btn">보관함으로</span>.</p>
+
+<h3 id="c4-3">4-3. 엑셀로 추가 · 갱신</h3>
+<ol>
+  <li>「엑셀로 추가·갱신」을 누르거나 사건 대장 화면에 엑셀 파일을 끌어다 놓아요.</li>
+  <li>법원 · 사건번호 · 당사자 · 담당 · 메모 칸을 머리글로 자동으로 짝지어요. 맞는지 보고 틀린 칸만 고쳐요.</li>
+  <li>이미 있는 사건은 새로 만들지 않고 값만 갱신해요. 「양식 받기」로 빈 양식을 받을 수 있어요.</li>
+</ol>
+<div class="call tip"><b class="t">메모 1</b><div>메모 1에 <b>계좌번호 · 고객번호</b>를 넣어 두면 채무자 원장 · 경매 사건과 이어져요. 하이픈 · 띄어쓰기는 무시해요.</div></div>
+
+<h3 id="c4-4">4-4. 사건 상세</h3>
+<figure><img src="{{img:g12_case}}" alt="사건 상세"><figcaption>한 사건의 모든 것</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>지금까지의 진행</b>: 조회할 때마다 쌓인 진행내용. 새로 생긴 줄엔 <span class="tag r">새</span>.</div></li>
+  <li><span class="n">2</span><div><b>일반내용 · 당사자</b>: 사건 기본 정보.</div></li>
+  <li><span class="n">3</span><div><b>메모 · 처리 기록</b>: 「+ 메모」로 처리한 일을 남겨요. 확인할 것에서 처리할 때 남긴 메모도 여기 쌓여요.</div></li>
+  <li><span class="n">4</span><div><span class="btn">이 사건만 지금 조회</span></div></li>
+  <li><span class="n">5</span><div><span class="btn">고치기</span> 담당 · 메모 · 사건 정보를 고쳐요.</div></li>
+</ol>
+</section>
+
+<!-- ================================================================== 5. 경매 -->
+<section class="ch" id="c5">
+<h2><span class="no">5</span> 경매 사건</h2>
+<p class="lead">법원경매정보 화면을 프로그램 안에서 열어 사건내역 · 기일내역 · 문건/송달내역을 가져와요.</p>
+
+<h3 id="c5-1">5-1. 경매 사건 목록</h3>
+<figure><img src="{{img:g16_auction}}" alt="경매 사건"><figcaption>경매 사건</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><span class="btn">+ 사건 넣기</span> 한 줄에 「법원 · 2025타경12345 (· 메모)」. 「엑셀로 넣기」도 돼요.</div></li>
+  <li><span class="n">2</span><div><span class="btn p">↻ 전체 조회</span> 프로그램 안에 법원경매정보 창이 열리고, 사건번호를 넣어 「검색」까지 자동으로 눌러요. 몇 초 쉰 뒤 다음 사건을 검색해요.</div></li>
+  <li><span class="n">3</span><div><b>요약</b>: 진행 중 · 매각기일 14일 안(가장 빠른 날) · 매각·배당 · 새 문건·송달(지난 조회 이후).</div></li>
+  <li><span class="n">4</span><div><b>사건 줄</b>: 진행 · 다음 매각기일 · 최저가 · 최근 문건·송달 · <b>연결된 소송</b>. 새로 생긴 문건 · 송달은 빨간 굵은 글씨. 줄을 누르면 상세.</div></li>
+</ol>
+<ul>
+  <li>체크하면 위에 막대: 고른 사건 조회 · 엑셀로 저장 · 보관함으로 · 삭제(지우기 전 자동 백업).</li>
+  <li><b>연결</b>: 메모(계좌번호)가 사건 대장의 「메모 1」과 같거나, 경매의 관련사건 번호가 사건 대장에 있으면 그 소송과 이어져요.</li>
+  <li>다음 매각기일은 <a href="#c3-2">기일·기한</a> 달력에도 나와요.</li>
+</ul>
+<div class="call warn"><b class="t">로봇 탐지</b><div>법원경매정보에 로봇 탐지가 있어요. 걸리면 안내가 뜨고 멈춰요. 쉬었다가 「다시 시도」. 쉬는 시간 · 「검색」 자동 누르기는 <a href="#c25-3">설정 → 조회 방식 → 경매</a>.</div></div>
+
+<h3 id="c5-2">5-2. 경매 사건 상세</h3>
+<figure><img src="{{img:g17_auction_case}}" alt="경매 상세"><figcaption>사건내역 · 기일내역 · 문건/송달내역</figcaption></figure>
+<p><span class="n">1</span>탭으로 사건내역 · 기일내역 · 문건/송달내역을 봐요(문건/송달은 사람별로 거르고 찾기). <span class="n">2</span><span class="btn">↻ 지금 다시 조회</span> <span class="n">3</span><span class="btn">메모</span> · 오른쪽 「엑셀」.</p>
+</section>
+
+<!-- ================================================================== 6. 법조치 현황 · 채무자 원장 -->
+<section class="ch" id="c6">
+<h2><span class="no">6</span> 법조치 현황 · 채무자 원장</h2>
+<p class="lead">채무자 단위로 법조치(독촉 → 소송 → 확정 → 집행)를 관리해요. 모든 법조치 화면이 같은 채무자 원장을 써요.</p>
+
+<h3 id="c6-1">6-1. 법조치 현황</h3>
+<figure><img src="{{img:g18_lg_home}}" alt="법조치 현황"><figcaption>법조치 현황</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>숫자 칸</b>: 진행 중 법조치 · 기한 7일 안 · 멈춰야 할 채무자(회생·파산) · 원장 채무자.</div></li>
+  <li><span class="n">2</span><div><b>먼저 볼 것</b>: 회생 멈춤 확인 · 회생·파산 기한 · 관리 가부 바뀜처럼 급한 것.</div></li>
+  <li><span class="n">3</span><div><b>기한 임박</b>: 끝날이 토 · 일 · 공휴일이면 다음 평일로.</div></li>
+  <li><span class="n">4</span><div><b>법조치 추이</b>: 최근 10주 서류 만듦 · 송달 처리 · 회생·파산 등록. 아래로 송달 처리율 · 단계별 채무자.</div></li>
+</ol>
+
+<h3 id="c6-2">6-2. 채무자 원장</h3>
+<figure><img src="{{img:g19_debtors}}" alt="채무자 원장"><figcaption>채무자 원장 · 오른쪽은 한 사람 자세히</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><span class="btn">엑셀 불러오기</span> 채권 엑셀을 넣으면 고객명 · 대출번호 · 원금 · 주소 칸을 자동으로 찾아요. 「양식 받기」로 빈 양식.</div></li>
+  <li><span class="n">2</span><div><span class="btn p">+ 채무자 추가</span> 한 명씩.</div></li>
+  <li><span class="n">3</span><div><b>찾기 · 거르기</b>: 이름 · 계좌번호, 할 일 · 멈춤 · 준비 · 독촉 · 소송 · 확정 · 집행 · 종결.</div></li>
+  <li><span class="n">4</span><div><b>한 사람 자세히</b>: 청구액 · 원금·이자 · 시효 완성 · 연체이율 · 관할 · 이어진 사건 · 기록. 「고치기」 「지급명령」 「회생 문서 등록」 「보관」.</div></li>
+</ol>
+<ul>
+  <li>표시 칸: <span class="tag r">시효 40일</span> <span class="tag r">멈춤 · 회생·파산</span> <span class="tag o">보정 11.09</span> <span class="tag">주소 없음</span>처럼 챙길 것을 알려 줘요.</li>
+  <li>사건 대장의 「메모 1」 계좌번호나 당사자 이름이 같으면 사건과 이어져요. 같은 사람을 찾는 기준은 <a href="#c25-5">설정 → 연결 기준</a>.</li>
+  <li>주민등록번호는 앞 6자리만 남겨요.</li>
+</ul>
+</section>
+
+<!-- ================================================================== 7. 송달 · 보정 -->
+<section class="ch" id="c7">
+<h2><span class="no">7</span> 송달·보정 관리</h2>
+<p class="lead">송달불능 · 보정 건을 한 대장에서 기한까지 관리해요.</p>
+
+<h3 id="c7-1">7-1. 화면 보기</h3>
+<figure><img src="{{img:g20_dlv}}" alt="송달·보정 관리"><figcaption>왼쪽 목록 · 오른쪽 한 건 자세히</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><span class="btn">엑셀 넣기</span> 사건번호 · 법원 · 당사자 · 불능 사유 · 보정명령일 · 보정 기간 · 기한 · 조치 · 담당 · 메모 · 진행 칸을 자동으로 짝지어요. 같은 사건이 있으면 빈 칸만 채워요(「이미 있는 건도 엑셀 값으로 바꾸기」를 켜면 덮어씀). 「진행」 칸에 「완료」가 있으면 끝난 것으로.</div></li>
+  <li><span class="n">2</span><div><span class="btn p">+ 직접 등록</span> 한 건씩. 「저장하고 하나 더」로 이어서 넣어요.</div></li>
+  <li><span class="n">3</span><div><b>찾기 · 거르기</b>: 모두 · 기한 지남 · 3일 안 · 기한 없음. 위의 「처리할 것 · 끝난 것 · 전체」.</div></li>
+  <li><span class="n">4</span><div><b>한 줄</b>: 당사자(조회 · 직접) · 사건번호 · 불능 사유 · 기한(D-2) · 조치 · 진행. <span class="tag">추천</span>은 사유에 맞는 조치예요(이사불명 → 초본 발급 요청, 폐문부재 → 야간·휴일 특별송달 등).</div></li>
+  <li><span class="n">5</span><div><b>자세히</b>: 보정명령 받은 날 · 보정 기간 · 기한 직접 · 제출한 날 · 조치 · 새 주소 · 메모.</div></li>
+</ol>
+
+<h3 id="c7-2">7-2. 보정 기한 계산 · 진행</h3>
+<ul>
+  <li><b>들어오는 길 세 가지</b>: 사건 조회에서 폐문부재 · 이사불명 · 수취인불명이 나오면 자동 / 엑셀 넣기 / 직접 등록.</li>
+  <li><b>보정명령 받은 날</b>을 넣으면 기한을 계산해요 — 받은 다음 날부터 보정 기간(기본 7일), 끝날이 토 · 일 · 공휴일이면 다음 평일. 명령서에 날짜가 있으면 「기한 직접」.</li>
+  <li><b>진행</b>: 접수 → 조치 정함 → 제출함(제출한 날) → 완료.</li>
+  <li>기한은 <a href="#c3-2">기일·기한</a> 달력, <a href="#c3-1">확인할 것</a>에 남은 날(D-3 등)로 보이고, 거기서 바로 「완료」 · 「지우기」.</li>
+  <li><b>회사 양식으로 만들기</b>: 건을 고르고 누르면 기본 양식(주소보정서 등)으로 바로 검수부터 시작해요 (<a href="#c9-4">9-4</a>).</li>
+  <li><b>엑셀로 내보내기</b>: 내보낼 칸을 골라(다음에도 기억) 지금 목록이나 선택한 건만. 「새 주소」는 개인정보라 기본으로 빼 뒀어요.</li>
+</ul>
+<div class="call warn"><b class="t">지급명령</b><div>지급명령은 공시송달을 할 수 없어요(민사소송법 제462조 단서). 주소를 더 찾을 수 없으면 「소제기 신청」으로 소송으로 바꾼 뒤 공시송달해요.</div></div>
+<div class="call tip"><b class="t">지우기 대신 완료</b><div>지운 건은 사건 조회에서 다시 들어오지 않아요. 끝난 일은 「완료」를 권해요.</div></div>
+</section>
+
+<!-- ================================================================== 8. 회생·파산 -->
+<section class="ch" id="c8">
+<h2><span class="no">8</span> 회생·파산 관리</h2>
+<p class="lead">회생 · 파산으로 넘어간 채권의 <b>관리 가부</b>(지금 회수 · 집행해도 되는지)를 추적해요.</p>
+
+<h3 id="c8-1">8-1. 조회하기</h3>
+<figure><img src="{{img:g21_rehab}}" alt="회생·파산 관리"><figcaption>회생·파산 관리</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>회생·파산 사건 조회</b>: 개회 · 하단 · 하면 · 회단 사건번호를 넣고 「바로 조회」. 「여러 건 붙여넣기」 · 아래 「엑셀 넣어서 대량 조회」도 돼요. 숫자를 치면 바로 조회되고 결과에 관리 가부가 크게 나와요.</div></li>
+  <li><span class="n">2</span><div><b>추적 중인 사건 다시 확인</b>: 정지 · 금지 · 주의 · 가능 · 불가 건수. <span class="btn p">정지·금지·주의 n건 다시 조회 →</span> 「30일 넘게 안 본 n건」만도 돼요.</div></li>
+  <li><span class="n">3</span><div><span class="btn">+ 받은 문서 등록</span> 법원에서 받은 문서로 등록. 「공공정보 엑셀」(신용정보 공공정보)을 넣어도 추적 목록에 들어가요.</div></li>
+</ol>
+
+<h3 id="c8-2">8-2. 관리 가부 읽기</h3>
+<figure><img src="{{img:g22_rehab_list}}" alt="관리 가부 목록"><figcaption>추적 목록 · 오른쪽은 판단 근거</figcaption></figure>
+<div class="tw"><table>
+<tr><th>관리 가부</th><th>뜻</th><th>할 일</th></tr>
+<tr><td><span class="tag g">가능</span></td><td>회생·파산이 멈추게 하는 효력이 없음 (폐지 · 기각 · 취하 · 면책불허가)</td><td>회수 재검토</td></tr>
+<tr><td><span class="tag o">주의</span></td><td>신청만 접수 (금지 · 중지명령 전)</td><td>곧 멈출 수 있음</td></tr>
+<tr><td><span class="tag r">정지</span></td><td>금지 · 중지명령</td><td>새 집행 · 추심 하지 않기</td></tr>
+<tr><td><span class="tag r">금지</span></td><td>개시결정 · 파산선고 · 계획 인가 · 면책 심리 중</td><td>개별 회수 · 집행 금지</td></tr>
+<tr><td><span class="tag">불가</span></td><td>면책 확정</td><td>관리 종결</td></tr>
+</table></div>
+<ul>
+  <li><span class="n">1</span> 목록에서 줄을 누르면 오른쪽에 <b>판단 근거 줄과 조문</b>, <b>멈춰야 할 우리 법조치</b>(진행 중인 소송 · 송달 등), 진행 단계가 보여요.</li>
+  <li>관리 가부가 바뀌면 <a href="#c3-1">확인할 것</a>에 올라오고, 정지 · 금지 · 불가인 채무자는 <b>서류 작성 대상에서 자동으로 빠져요.</b></li>
+  <li>면책 확정 · 기각 · 폐지 확정은 「끝내기」로 닫으면 목록에서 빠져요.</li>
+</ul>
+<div class="call must"><b class="t">꼭</b><div>진행내용으로 판단한 <b>예상</b>이에요. 결정의 확정 여부는 사건 상세에서 꼭 확인해 주세요.</div></div>
+</section>
+
+<!-- ================================================================== 9. 서류 작성 -->
+<section class="ch" id="c9">
+<h2><span class="no">9</span> 서류 작성</h2>
+<p class="lead">회사에서 쓰는 양식 PDF를 그대로 쓰고, 바뀌는 칸에만 원장 · 송달 · 엑셀 값을 채워요. 양식마다 칸을 한 번만 정하면 계속 써요.</p>
+
+<h3 id="c9-1">9-1. 양식함</h3>
+<figure><img src="{{img:g23_fm}}" alt="양식함"><figcaption>서류 작성 → 양식함</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>위 탭</b>: 양식함 · 서류 만들기 · 우리 회사 정보 · 기본 서류.</div></li>
+  <li><span class="n">+</span><div><b>회사 양식 PDF 넣기</b> (위쪽 넓은 칸): 한글 · 워드에서 저장한 PDF면 낱말 옆 칸과 □ 체크 칸을 자동으로 찾아 줘요. 스캔한 PDF는 칸을 직접 그려요.</div></li>
+  <li><span class="n">3</span><div><span class="btn">동료 양식 가져오기</span> 동료가 「내보내기」한 <b>.양식.zip</b>을 넣으면 칸까지 그대로 들어가요.</div></li>
+  <li><span class="n">4</span><div><span class="btn p">서류 만들기</span> 이 양식으로 바로 만들기.</div></li>
+  <li><span class="n">5</span><div><span class="btn">칸 수정</span> 칸을 다시 정해요. 「내보내기」로 동료에게 줘요. ★ 즐겨찾기.</div></li>
+</ol>
+
+<h3 id="c9-2">9-2. 바뀌는 칸 정하기</h3>
+<figure><img src="{{img:g24_fm_edit}}" alt="칸 정하기"><figcaption>양식 위에 칸을 놓고, 오른쪽에서 무엇을 채울지 정해요</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><span class="btn">🔍 칸 자동 찾기</span> 「사건」 「원고」 「피고」 옆 칸, □ 체크 칸(옆 글자로 선택지까지), 「○○법원 귀중」 「20 . . .」처럼 덮어쓸 글자를 찾아 제안해요. 맞는지 확인만 해요.</div></li>
+  <li><span class="n">2</span><div><b>정한 칸</b>: 칸마다 무엇을 채울지(사건번호 · 채무자 이름 · 주소 · 오늘 날짜 · 회사명 …). 빈 곳을 끌면 새 칸, 칸을 끌어 옮기고 크기를 바꿔요.</div></li>
+</ol>
+<p>오른쪽 위 「양식 저장」. 고정 문구는 읽지도 바꾸지도 않아요. 채우는 글꼴은 PC의 바탕 · 맑은 고딕이에요.</p>
+
+<h3 id="c9-3">9-3. 서류 만들기: 대상 고르기</h3>
+<figure><img src="{{img:g25_fm_make}}" alt="대상 고르기"><figcaption>① 양식 → ② 대상 → ③ 검수 → ④ 마지막 확인 · 저장</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>대상</b>: 송달 결과(처리할 송달불능) · 채무자 원장 · 엑셀 넣기 중에서 골라요. 엑셀 열 이름은 자동으로 짝짓고, 사건번호 띄어쓰기 같은 값은 정리하고, 빈 값은 원장에서 채워요. 회생·파산으로 <span class="tag r">금지 · 절차 진행 중</span>인 채무자는 고를 수 없어요.</div></li>
+  <li><span class="n">2</span><div><span class="btn p">다음 — 검수</span></div></li>
+</ol>
+
+<h3 id="c9-4">9-4. 검수 · 저장</h3>
+<figure><img src="{{img:g26_fm_check}}" alt="검수"><figcaption>고칠 것만 먼저 — 빈 칸 · 넘침 · 사건 대장과 다른 법원</figcaption></figure>
+<ul>
+  <li><b>고칠 것만</b>(빈 칸 · 넘침 · 사건 대장과 다른 법원)부터 보여 줘요. 오른쪽에서 값을 고쳐요. 정상인 것은 <span class="btn p">정상 n건 한꺼번에 검수 끝</span>.</li>
+  <li>보기: <b>한 장씩</b> · <b>표로 고치기</b> · <b>훑어보기</b>. <kbd>Enter</kbd> = 검수 끝 → 다음.</li>
+  <li><b>마지막 확인</b>: 저장 직전에 회생·파산 관리 가부를 다시 보고(바뀐 사람은 빼요), 30일 안에 같은 서류를 만든 사람을 알려 줘요.</li>
+  <li><b>저장</b>: 한 명당 PDF 하나 / 한 파일로 묶기 / 인쇄기로 바로(인쇄기 · 부수 고르기, 실제 크기 100%). 원장 기록과 송달 처리도 같이 바꿔요.</li>
+</ul>
+
+<h3 id="c9-5">9-5. 우리 회사 정보</h3>
+<figure><img src="{{img:g27_fm_company}}" alt="우리 회사 정보"><figcaption>한 번만 넣으면 모든 서류에</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>고정값</b>(모든 채권 공통): 회사명 · 대표자 · 주소 · 전화 · 담당자 · 기본 관할 법원 · 채울 글꼴. 아래 <b>법인 인감 그림</b>.</div></li>
+  <li><span class="n">2</span><div><b>이 채권의 값</b>: 원채권사(양도인) · 양도 원인 등 채권마다 다른 값.</div></li>
+  <li><span class="n">3</span><div><b>업무별 기본 양식</b>: 송달불능 · 지급명령 대상 · 집행권원 확보마다 쓸 양식. 「회사에서 더한 항목」으로 칸을 더 만들 수 있어요.</div></li>
+</ol>
+
+<h3 id="c9-6">9-6. 기본 서류 (지급명령 · 주소보정서)</h3>
+<figure><img src="{{img:g28_lg_doc}}" alt="기본 서류"><figcaption>프로그램 기본 틀로 워드(.docx)를 만들어요</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><span class="btn">서류 정보</span> 먼저 우리 회사(채권자)와 이 채권의 양도인 · 양도일 · 통지 도달일을 넣어요.</div></li>
+  <li><span class="n">2</span><div><b>서류 종류</b>: 지급명령 신청서 · 주소보정서(소제기 신청). 전자소송 / 종이, 지연손해금 근거(약정 등).</div></li>
+  <li><span class="n">3</span><div>채무자를 고르고 <span class="btn p">n건 만들기</span>. 인지대 · 송달료를 함께 계산해요(<a href="#c25-7">기준표</a> 값).</div></li>
+  <li><span class="n">4</span><div><b>미리보기</b>와 아래 <b>전자소송 붙여넣기</b> 글(복사해서 전자소송에 붙여요).</div></li>
+</ol>
+<div class="call must"><b class="t">꼭</b><div>만든 서류와 계산은 <b>초안</b>이에요. 내기 전에 담당자가 내용과 금액을 꼭 확인해 주세요.</div></div>
+</section>
+
+<!-- ================================================================== 10~13. 배당기일 (배당기일 사용법에서 가져옴) -->
+{{include:배당기일_사용법.src.html|c1,c2,c3,c4|10}}
+
+<!-- ================================================================== 14~23. 회수 분석 (회수 분석 사용법에서 가져옴) -->
+{{include:회수분석_사용법.src.html|c0,c1,c2,c3,c4,c5,c6,c7,c8,c9|14|rc-|회수 분석}}
+
+<!-- ================================================================== 24. 엑셀 넣기 · 월간 보고서 -->
+<section class="ch" id="c24">
+<h2><span class="no">24</span> 엑셀 넣기 · 월간 보고서</h2>
+<h3 id="c24-1">24-1. 엑셀 넣기 (한곳에서)</h3>
+<figure><img src="{{img:g29_xl}}" alt="엑셀 넣기"><figcaption>엑셀 하나를 넣을 곳에 맞춰 넣어요</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>엑셀 파일 고르기</b>: .xlsx · .xls · .csv, 맨 위에 제목 줄이 있어도 돼요. 머리글을 보고 넣을 곳을 먼저 골라 둬요.</div></li>
+  <li><span class="n">2</span><div><b>넣을 곳</b>: 사건 대장 · 채무자 원장 · 송달·보정 관리 · 회생·파산 등재 · 회사 양식 서류 대상. 고르면 같은 화면에서 열을 짝지어 넣어요.</div></li>
+</ol>
+<div class="call ok"><b class="t">기억</b><div>어디서 짝지었든 같은 열 이름은 다음부터 자동으로 짝지어요. 각 화면의 엑셀 넣기도 그대로 쓸 수 있어요.</div></div>
+
+<h3 id="c24-2">24-2. 월간 보고서</h3>
+<figure><img src="{{img:g15_report}}" alt="월간 보고서"><figcaption>소송 사건 현황 보고서</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>기간 · 넣을 내용 · 파일 이름</b>: 요약 숫자 · 상태별 건수 · 이번 달 확정 목록 · 송달불능·보정명령 목록 · 담당자별 · 법원별 건수.</div></li>
+  <li><span class="n">2</span><div><span class="btn">인쇄 · PDF</span></div></li>
+  <li><span class="n">3</span><div><span class="btn p">엑셀로 저장</span></div></li>
+</ol>
+</section>
+
+<!-- ================================================================== 25. 설정 · 기준표 -->
+<section class="ch" id="c25">
+<h2><span class="no">25</span> 설정 · 기준표</h2>
+<p class="lead">바꾼 내용은 바로 저장돼요. 「설정 기록」에서 되돌릴 수 있고, 「설정 파일로 내보내기 · 불러오기」로 다른 PC에 옮겨요.</p>
+
+<h3 id="c25-1">25-1. 상태 분류 규칙</h3>
+<figure><img src="{{img:g31_set_rule}}" alt="상태 분류 규칙"><figcaption><span class="n">1</span>설정 메뉴 <span class="n">2</span>상태 분류 규칙</figcaption></figure>
+<ul>
+  <li>진행내용을 <b>최근 줄부터</b> 정한 줄 수까지 읽어서, <b>처음 맞는 줄</b>로 사건 상태를 정해요. 한 줄에 여러 규칙이 맞으면 위에 있는 규칙.</li>
+  <li>규칙마다: <b>이런 글자가 있으면</b> → 상태 · 확인할 것에 올리기 · 기한(일) · 조회에서 빼기.</li>
+  <li>예) 「확정」 → 확정, 조회에서 빼기 / 「보정명령」 → 확인할 것 + 기한 7일 / 「송달불능 · 폐문부재 · 이사불명」 → 송달불능.</li>
+  <li>↑↓로 순서, 「고치기」 「지우기」 「+ 규칙 추가」. 저장하면 바뀌는 사건 수를 알려 줘요.</li>
+</ul>
+
+<h3 id="c25-2">25-2. 확인할 것 · 기한</h3>
+<figure><img src="{{img:g32_set_todo}}" alt="확인할 것 · 기한 설정"><figcaption>확인할 것 · 기한</figcaption></figure>
+<ul>
+  <li>확정 예상일 계산(판결 송달 도달일 + 14일), 기일 미리 알림(n일 전부터), 빨간색 표시(n일 이내), 오래 진행 없는 사건 알림.</li>
+  <li>처리할 때 메모 남기기, 처리한 것 숨기기(바로 · 하루 뒤 · 숨기지 않음).</li>
+  <li><b>프로그램 켤 때 첫 화면</b>, <b>내 이름</b>(처리 기록에 남는 이름).</li>
+</ul>
+
+<h3 id="c25-3">25-3. 조회 방식</h3>
+<figure><img src="{{img:g33_set_run}}" alt="조회 방식"><figcaption>조회 방식</figcaption></figure>
+<ul>
+  <li><b>숫자를 다 치면 바로 조회</b>, 숫자 칸 개수(자동 · 4~7), 그림 크기.</li>
+  <li><b>사건 사이 쉬는 시간</b>(기본 1초 — 너무 줄이면 법원 사이트가 막을 수 있어요), 정기 조회 주기(n일마다 「다음 조회 권장」).</li>
+  <li>찾을 수 없음일 때 이름 표기를 바꿔 다시 시도, <b>법원 정보 새로 받기</b>(법원 사이트가 바뀌어 조회가 안 될 때), 단축키.</li>
+  <li><b>경매</b>: 「검색」 자동 누르기, 쉬는 시간, 탭 자동 열기.</li>
+</ul>
+
+<h3 id="c25-4">25-4. 메뉴 구성 · 화면</h3>
+<div class="grid2">
+  <figure style="margin:0"><img src="{{img:g34_set_menu}}" alt="메뉴 구성"><figcaption>메뉴 구성</figcaption></figure>
+  <figure style="margin:0"><img src="{{img:g37_set_look}}" alt="화면"><figcaption>화면</figcaption></figure>
+</div>
+<ul>
+  <li><b>메뉴 구성</b>: ▲▼로 순서(묶음 끝에서 더 누르면 옆 묶음으로), 묶음 이름 · 접어 두기 · 켜고 끄기. 「처음대로」로 되돌려요.</li>
+  <li><b>화면</b>: 밝게 · 어둡게 · PC 설정 따라, 글자 크기, 표 줄 간격, 강조 색.</li>
+</ul>
+
+<h3 id="c25-5">25-5. 연결 기준 (키)</h3>
+<figure><img src="{{img:g35_set_link}}" alt="연결 기준"><figcaption>같은 사람 · 같은 건을 무엇으로 찾을지</figcaption></figure>
+<ul>
+  <li><b>채무자 원장 엑셀</b>: 관리번호·계좌번호(키) → 이름+생년월일 → 이름만 (순서 · 켜고 끄기, 모두 끄면 늘 새로).</li>
+  <li><b>사건 대장 ↔ 원장</b>: 메모 1 = 원장 키 / 당사자 이름 = 채무자 이름.</li>
+  <li><b>송달·보정 관리 엑셀</b>: 사건번호+보정명령일 / 사건번호만 / 찾지 않음.</li>
+  <li>회생·파산 공공정보 · 회사 양식 엑셀도 따로. 키로 쓸 엑셀 열 이름(예: 「대출번호」)을 정해 두면 그 열을 키로 써요. 이름만으로 찾은 사람은 「동명이인 확인」으로 알려 줘요.</li>
+</ul>
+
+<h3 id="c25-6">25-6. 시작 · 저장 · 백업</h3>
+<figure><img src="{{img:g36_set_save}}" alt="시작 · 저장 · 백업"><figcaption>시작 · 저장 · 백업</figcaption></figure>
+<ul>
+  <li><b>PC 켤 때 자동으로 실행</b>: Windows에 로그인하면 바로 열려요. 이 PC의 이 사용자만, 관리자 권한은 필요 없어요.</li>
+  <li><b>자료 저장 위치</b>: 기본은 「문서\사건조회도우미\채권\(채권 이름)」. 「바꾸기」로 옮겨요.</li>
+  <li><b>자동 백업</b>: 하루 한 번, 최근 n개를 남겨요. 「지금 백업」, 아래 「백업에서 되돌리기」.</li>
+  <li><b>새 판 알림 폴더</b>: 공용폴더로 정해 두면, 거기에 새 판이 올라왔을 때 알려 줘요.</li>
+  <li>그 밖에: 엑셀 내보내기(시트 · 칸 · 저장 폴더), 시효관리 앱 연결, 설정 기록(되돌리기).</li>
+</ul>
+
+<h3 id="c25-7">25-7. 기준표 (법령 값)</h3>
+<figure><img src="{{img:g30_std}}" alt="기준표"><figcaption>법령이 바뀌는 값은 여기 한곳에</figcaption></figure>
+<ul>
+  <li><span class="n">1</span> 송달료 1회분 · 독촉 송달료 · 압류·추심 송달료 · 전자소송 인지 비율 · 강제집행 인지 · 압류금지 금액 · 소액임차인 기준 등. 값마다 <b>시행일</b>과 <b>확인 기록(출처)</b>이 있어요.</li>
+  <li><span class="n">2</span> <span class="btn">+ 새 시행일</span> 법령이 바뀌면 새 시행일 줄을 더해요. 계산은 신청하는 날(오늘)에 맞는 줄을 써요.</li>
+  <li><span class="tag o">확인 필요</span> 표시가 있는 값은 쓰기 전에 꼭 확인해 주세요. 모든 채권이 같이 써요.</li>
+</ul>
+</section>
+
+<!-- ================================================================== 26. 문제 해결 -->
+<section class="ch" id="c26">
+<h2><span class="no">26</span> 자주 묻는 질문 · 문제 해결</h2>
+<details open><summary>조회 결과가 실제 나의사건검색과 달라요</summary>
+<p>먼저 <b>시연 판</b>인지 보세요. 시연 판(「종합관리_시안.exe」, 바탕화면 아이콘 「종합관리 시안」)은 법원 사이트에 접속하지 않고 <b>꾸며 낸 결과</b>를 보여 줘요. 시연 판이면 화면 아래 가운데에 빨간 <span class="tag r">시연 판</span> 표시가 늘 떠 있고, 창 제목 앞에 「[시연 판]」이 붙어요. 실제 업무는 <b>「종합관리.exe」</b>(바탕화면 아이콘 「종합관리」)로 하세요. 시연 판은 바탕화면 아이콘과 <code>%LOCALAPPDATA%\CourtSearchSian</code> 폴더를 지우면 없어져요.</p>
+<p>실제 판인데도 다르면 조회한 법원 · 사건번호 · 당사자와, 다르게 나온 곳(사건명 · 당사자 · 진행내용)을 자가진단 파일과 함께 담당자에게 보내 주세요.</p></details>
+<details><summary>조회가 안 돼요 / 「찾을 수 없음」이 많아요</summary>
+<p>법원 이름 · 사건번호 · 당사자 이름이 맞는지 보세요. 법원 사이트가 바뀌었을 수 있으니 <a href="#c25-3">설정 → 조회 방식 → 「법원 정보 새로 받기」</a>를 눌러 보세요. 그래도 안 되면 자가진단 파일을 보내 주세요(아래).</p></details>
+<details><summary>숫자를 쳤는데 조회가 안 넘어가요</summary>
+<p>숫자 개수가 6개가 아니면 <kbd>Enter</kbd>를 누르세요. 그 개수를 기억해요. 그림이 안 보이면 <kbd>F5</kbd>(새 그림), 듣고 싶으면 <kbd>F6</kbd>.</p></details>
+<details><summary>조회하다 멈췄어요</summary>
+<p>「조회 기록 · 결과」에서 그 회차의 「이어서 조회」를 누르세요. 했던 것은 그대로 남아요.</p></details>
+<details><summary>보정 기한이 안 보여요</summary>
+<p>보정명령 받은 날을 넣어야 기한이 계산돼요. 송달·보정 관리의 「기한 없음」, 또는 기일·기한 오른쪽 「기한 없음」에서 넣어 주세요.</p></details>
+<details><summary>엑셀 칸이 엉뚱하게 짝지어졌어요</summary>
+<p>짝짓기 화면에서 틀린 칸만 직접 고르면 다음부터 그 열 이름은 그대로 기억해요. 배당 법조치 자료는 <a href="#dv-c1-5">칸 맞추기</a>를 쓰세요.</p></details>
+<details><summary>배당 매칭에서 채무자키 · 법조치키가 안 붙어요</summary>
+<p>당사 법조치 자료의 칸을 못 알아본 거예요. <a href="#dv-c1-5">10-5. 칸 맞추기</a>에서 채무자키 · 법조치키 · 사건번호 칸을 골라 주세요. 그래도 안 되면 「진단 저장」 파일을 보내 주세요.</p></details>
+<details><summary>새 판을 받았는데 화면이 예전 그대로예요</summary>
+<p>새 「종합관리.exe」를 한 번 실행하세요. 예전 exe를 실행하면 예전 화면이 나와요. 왼쪽 아래 판 번호로 확인해요.</p></details>
+<details><summary>다른 PC와 자료를 같이 쓸 수 있나요?</summary>
+<p>자료 폴더는 한 PC에서만 쓰세요. 다른 PC가 같은 자료 폴더를 쓰거나 공용(네트워크) 폴더면 화면 위에 알려 줘요. 공유는 엑셀 내보내기 · 보고서로 해요. 설정은 「설정 파일로 내보내기」, 양식은 「내보내기(.양식.zip)」로 옮겨요.</p></details>
+<details><summary>잘못 지웠어요 / 예전 상태로 돌리고 싶어요</summary>
+<p>설정 → 시작 · 저장 · 백업 → 「백업에서 되돌리기」. 설정은 「설정 기록」에서 되돌려요. 배당 대장은 「지운 줄」에서 되살려요.</p></details>
+<details><summary>자료는 어디에 저장되나요? 인터넷으로 나가나요?</summary>
+<p>이 PC의 「문서\사건조회도우미\채권\(채권 이름)」 폴더에만 저장돼요. 인터넷으로는 법원 사이트(나의사건검색 · 법원경매정보)하고만 주고받아요.</p></details>
+<h3 id="c26-1">26-1. 문제를 알려 줄 때</h3>
+<ol>
+  <li>바탕화면 [종합관리] 아이콘을 오른쪽 클릭 → 「속성」 → 대상 끝에 띄우고 <b>--self-test</b>를 붙여 실행하면 바탕화면에 <b>「종합관리_자가진단.txt」</b>가 생겨요.</li>
+  <li>이 파일과 아래 파일을 담당자에게 보내 주세요.
+    <ul><li>%LOCALAPPDATA%\CourtSearch\오류기록.txt</li><li>%LOCALAPPDATA%\CourtSearch\진단\ (사이트 응답이 예상과 다를 때 남는 기록)</li></ul></li>
+</ol>
+</section>
+
+<!-- ================================================================== 27. 단축키 · 용어 -->
+<section class="ch" id="c27">
+<h2><span class="no">27</span> 단축키 · 용어</h2>
+<h3 id="c27-1">27-1. 단축키</h3>
+<table>
+<tr><th>누르기</th><th>어디서</th><th>하는 일</th></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>어디서나</td><td>찾기 (화면 · 사건 · 채무자 · 할 일)</td></tr>
+<tr><td><kbd>Alt</kbd>+<kbd>←</kbd></td><td>어디서나</td><td>앞 화면으로</td></tr>
+<tr><td>숫자 6개</td><td>조회 중</td><td>바로 조회 (개수가 다르면 <kbd>Enter</kbd>)</td></tr>
+<tr><td><kbd>F5</kbd> · <kbd>F6</kbd> · <kbd>Esc</kbd></td><td>조회 중</td><td>새 그림 · 소리로 듣기 · 건너뛰기</td></tr>
+<tr><td><kbd>Enter</kbd></td><td>서류 검수</td><td>검수 끝 → 다음</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd> · <kbd>Ctrl</kbd>+<kbd>V</kbd> · <kbd>Delete</kbd></td><td>배당 관리 대장</td><td>고른 칸 복사 · 붙여넣어 고치기 · 칸 비우기</td></tr>
+<tr><td><kbd>/</kbd> · <kbd>[</kbd></td><td>이 사용법</td><td>찾기 칸으로 · 차례 열고 닫기</td></tr>
+</table>
+<h3 id="c27-2">27-2. 용어 풀이</h3>
+<table>
+<tr><th>말</th><th>뜻</th></tr>
+<tr><td>채권</td><td>자료를 따로 쌓는 묶음 (예: ○○캐피탈 2025-1차)</td></tr>
+<tr><td>사건 대장</td><td>프로그램에 보관하는 조회 대상 사건 목록</td></tr>
+<tr><td>확인할 것</td><td>조회 결과 중 사람이 처리해야 할 일</td></tr>
+<tr><td>확정 예상</td><td>판결 송달일 + 정해진 날수로 계산한 확정 예상일 (실제는 확인 필요)</td></tr>
+<tr><td>보정명령 · 주소보정</td><td>법원이 주소 등을 고쳐 내라고 한 명령 · 그에 맞춰 내는 서류</td></tr>
+<tr><td>송달불능</td><td>폐문부재 · 이사불명 · 수취인불명 등으로 서류가 전달되지 않음</td></tr>
+<tr><td>채무자 원장</td><td>모든 법조치 화면이 같이 쓰는 채무자 장부</td></tr>
+<tr><td>관리 가부</td><td>회생·파산 때문에 지금 회수 · 집행해도 되는지 (가능 · 주의 · 정지 · 금지 · 불가)</td></tr>
+<tr><td>기준표</td><td>송달료 · 인지 등 법령으로 정해진 값 (시행일별)</td></tr>
+<tr><td>배당사건 (타배)</td><td>제3채무자가 공탁한 돈을 법원이 채권자들에게 나누는 사건</td></tr>
+<tr><td>채무자키 · 법조치키</td><td>당사 법조치 자료의 고유 번호. 배당 매칭 때 붙어요</td></tr>
+</table>
+<div class="call tip"><b class="t">배당기일만 따로</b><div>배당기일 기능만 담은 「배당기일_사용법」도 같은 폴더에 있어요.</div></div>
+</section>
+
+{{FOOT}}

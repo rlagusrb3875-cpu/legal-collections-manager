@@ -1,0 +1,148 @@
+
+</div></main>
+<a class="totop" id="totop" href="#content" title="맨 위로">↑</a>
+<div class="lb" id="lb"><img alt=""></div>
+<script>
+(() => {
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const body = document.body, content = $('#content'), toc = $('#toc');
+  const store = {get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }};
+  const KEY = 'manual:' + document.title.split('·')[0].trim();
+  const narrow = () => matchMedia('(max-width:1000px)').matches;
+
+  // 그림: 테두리 틀로 감싸기 (크게 보기 표시)
+  $$('#content figure > img').forEach(i => { const f = document.createElement('div'); f.className = 'fr'; i.replaceWith(f); f.appendChild(i); i.loading = 'lazy'; i.decoding = 'async'; });
+  // 넓은 표는 옆으로 밀리게
+  $$('#content table').forEach(t => { if (!t.parentElement.classList.contains('tw')) { const w = document.createElement('div'); w.className = 'tw'; t.replaceWith(w); w.appendChild(t); } });
+
+  // ---------------------------------------------------------------- 차례 만들기 (장 → 소제목, 접고 펴기)
+  const secs = $$('#content section.ch');
+  const groups = [];
+  const ptoc = $('#ptocl');
+  secs.forEach(sec => {
+    const h2 = sec.querySelector('h2');
+    const no = (h2.querySelector('.no') || {}).textContent || '';
+    const title = [...h2.childNodes].filter(n => !(n.classList && n.classList.contains('no'))).map(n => n.textContent).join('').trim();
+    const g = document.createElement('div'); g.className = 'g';
+    const subs = [...sec.querySelectorAll('h3')];
+    g.innerHTML = `<a href="#${sec.id}" data-id="${sec.id}"><span class="ch">${no}</span><span>${title}</span><span class="cnt"></span>${subs.length ? '<span class="car" title="펼치기 · 접기">›</span>' : ''}</a>` +
+      (subs.length ? `<div class="sub"><div>${subs.map(h => `<a href="#${h.id}" data-id="${h.id}"><span>${h.textContent.trim()}</span><span class="cnt"></span></a>`).join('')}</div></div>` : '');
+    toc.appendChild(g);
+    groups.push({g, sec, subs});
+    if (ptoc) { const li = document.createElement('li'); li.textContent = `${no}. ${title}`; ptoc.appendChild(li);
+      subs.forEach(h => { const l = document.createElement('li'); l.className = 'l2'; l.textContent = h.textContent.trim(); ptoc.appendChild(l); }); }
+  });
+  let mode = store.get(KEY + ':mode') || 'auto';   // auto: 지금 읽는 장만 · all · none · manual
+  const setOpen = (G, on) => G.g.classList.toggle('open', !!on);
+  const applyMode = cur => groups.forEach(G => setOpen(G, mode === 'all' || (mode === 'auto' && G === cur) || (mode === 'manual' && G.g.dataset.man === '1') || (mode === 'none' ? false : false)));
+  toc.addEventListener('click', e => {
+    const car = e.target.closest('.car');
+    if (car) { e.preventDefault(); const G = groups.find(x => x.g.contains(car));
+      if (mode !== 'manual') { groups.forEach(x => x.g.dataset.man = x.g.classList.contains('open') ? '1' : ''); mode = 'manual'; store.set(KEY + ':mode', mode); }
+      G.g.dataset.man = G.g.classList.contains('open') ? '' : '1'; setOpen(G, G.g.dataset.man === '1'); return; }
+    if (e.target.closest('a') && narrow()) setTimeout(() => body.classList.remove('toc-on'), 80);
+  });
+  $('#tAll').onclick = () => { mode = 'all'; store.set(KEY + ':mode', mode); applyMode(); };
+  $('#tNone').onclick = () => { mode = 'auto'; store.set(KEY + ':mode', mode); groups.forEach(G => setOpen(G, false)); };
+
+  // ---------------------------------------------------------------- 차례 열고 닫기 (넓은 화면: 접기 · 좁은 화면: 서랍)
+  if (store.get(KEY + ':off') === '1') body.classList.add('toc-off');
+  const toggleToc = () => { if (narrow()) body.classList.toggle('toc-on'); else { body.classList.toggle('toc-off'); store.set(KEY + ':off', body.classList.contains('toc-off') ? '1' : '0'); } };
+  $('#tocBtn').onclick = toggleToc;
+  $('#sideX').onclick = () => { if (narrow()) body.classList.remove('toc-on'); else toggleToc(); };
+  $('#scrim').onclick = () => body.classList.remove('toc-on');
+
+  // ---------------------------------------------------------------- 지금 읽는 곳 · 읽은 만큼 · 맨 위로
+  const allLinks = $$('#toc a[data-id]');
+  const targets = allLinks.map(a => ({a, el: document.getElementById(a.dataset.id)})).filter(x => x.el);
+  let lastG = null, ticking = false;
+  const spy = () => {
+    ticking = false;
+    let cur = null;
+    for (const t of targets) { if (t.el.getBoundingClientRect().top < 150) cur = t; else break; }
+    allLinks.forEach(a => a.classList.toggle('on', !!cur && (a === cur.a || (a.parentElement.classList.contains('g') && a.parentElement.contains(cur.a)))));
+    const G = cur ? groups.find(x => x.g.contains(cur.a)) : null;
+    if (G !== lastG) { lastG = G; if (mode === 'auto' && !searching) applyMode(G); }
+    const on = cur && cur.a; if (on && !narrow()) { const r = on.getBoundingClientRect(), sr = $('#side').getBoundingClientRect(); if (r.top < sr.top + 90 || r.bottom > sr.bottom - 30) on.scrollIntoView({block: 'center'}); }
+    const h = document.documentElement; $('#prog').style.width = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight) * 100) + '%';
+    $('#totop').classList.toggle('on', h.scrollTop > 600);
+    $$('.rv:not(.in)').forEach(el => { const r = el.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) el.classList.add('in'); });
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, {passive: true});
+
+  // ---------------------------------------------------------------- 나타나기 (스크롤하면 부드럽게)
+  const print = new URLSearchParams(location.search).get('print');
+  const rvEls = $$('#content section.ch > *:not(h2), #content .cover ~ .grid3 > *');
+  if (!print && 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {rootMargin: '0px 0px -8% 0px'});
+    rvEls.forEach(el => { if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('rv'); io.observe(el); } });
+  }
+
+  // ---------------------------------------------------------------- 그림 크게 보기
+  const lb = $('#lb');
+  content.addEventListener('click', e => { const f = e.target.closest('figure .fr'); if (f) { lb.querySelector('img').src = f.querySelector('img').src; lb.classList.add('on'); } });
+  lb.onclick = () => lb.classList.remove('on');
+
+  // ---------------------------------------------------------------- 찾기
+  const q = $('#q'), sr = $('#sr'), nores = $('#nores');
+  let hits = [], idx = -1, searching = false;
+  const escR = w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const clear = () => {
+    $$('#content mark').forEach(m => { const p = m.parentNode; m.replaceWith(document.createTextNode(m.textContent)); p.normalize(); });
+    hits = []; idx = -1; searching = false; toc.classList.remove('searching');
+    allLinks.forEach(a => { a.classList.remove('hit'); const c = a.querySelector('.cnt'); if (c) c.textContent = ''; });
+    $$('#content details').forEach(d => { if (d.dataset.auto) { d.open = false; delete d.dataset.auto; } });
+  };
+  const paint = re => {
+    const w = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {acceptNode: n => n.parentNode.closest('script,style,.print-toc,#nores') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+    const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+    nodes.forEach(n => { const t = n.nodeValue; re.lastIndex = 0; if (!re.test(t)) return; re.lastIndex = 0;
+      const f = document.createDocumentFragment(); let last = 0, m;
+      while ((m = re.exec(t))) { f.appendChild(document.createTextNode(t.slice(last, m.index))); const mk = document.createElement('mark'); mk.textContent = m[0]; f.appendChild(mk); hits.push(mk); last = m.index + m[0].length; }
+      f.appendChild(document.createTextNode(t.slice(last))); n.replaceWith(f); });
+  };
+  const run = () => {
+    clear(); nores.style.display = 'none';
+    const words = q.value.trim().split(/\s+/).filter(Boolean);
+    if (!words.length) { sr.textContent = ''; applyMode(lastG); return; }
+    paint(new RegExp(words.map(escR).join('\\s*'), 'gi'));
+    const anyw = words.filter(x => x.length >= 2);
+    if (!hits.length && anyw.length && words.length > 1) paint(new RegExp(anyw.map(escR).join('|'), 'gi'));
+    hits.forEach(h => { const d = h.closest('details'); if (d && !d.open) { d.open = true; d.dataset.auto = 1; } });
+    searching = true; toc.classList.add('searching');
+    const cnt = {};
+    hits.forEach(h => { const sec = h.closest('section.ch'); if (!sec) return; cnt[sec.id] = (cnt[sec.id] || 0) + 1;
+      const hs = [...sec.querySelectorAll('h3')].filter(x => x.compareDocumentPosition(h) & Node.DOCUMENT_POSITION_FOLLOWING || x.contains(h)); const hd = hs[hs.length - 1];
+      if (hd) cnt[hd.id] = (cnt[hd.id] || 0) + 1; });
+    allLinks.forEach(a => { const n = cnt[a.dataset.id]; if (n) { a.classList.add('hit'); a.querySelector('.cnt').textContent = n; } });
+    groups.forEach(G => setOpen(G, G.g.querySelector('.sub a.hit')));
+    sr.textContent = hits.length ? `${hits.length}곳` : '없음';
+    if (!hits.length) { nores.style.display = 'block'; return; }
+    go(0);
+  };
+  const go = i => { if (!hits.length) return; hits.forEach(h => h.classList.remove('cur')); idx = (i + hits.length) % hits.length;
+    const h = hits[idx]; h.classList.add('cur'); const rv = h.closest('.rv'); if (rv) rv.classList.add('in');
+    h.scrollIntoView({block: 'center', behavior: 'smooth'}); sr.textContent = `${idx + 1} / ${hits.length}곳`; };
+  let tm; q.oninput = () => { clearTimeout(tm); tm = setTimeout(run, 220); };
+  q.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); go(idx + (e.shiftKey ? -1 : 1)); } if (e.key === 'Escape') { q.value = ''; run(); q.blur(); } };
+  $('#next').onclick = () => go(idx + 1);
+  $('#prev').onclick = () => go(idx - 1);
+  $$('#chips button').forEach(b => b.onclick = () => { q.value = b.textContent; run(); });
+  addEventListener('keydown', e => {
+    if (e.key === 'Escape') { lb.classList.remove('on'); body.classList.remove('toc-on'); }
+    if (document.activeElement === q || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === '/') { e.preventDefault(); q.focus(); q.select(); }
+    if (e.key === '[') { e.preventDefault(); toggleToc(); }
+  });
+
+  // ---------------------------------------------------------------- 주소 ?q= · 인쇄
+  const P = new URLSearchParams(location.search);
+  const openAll = () => $$('#content details').forEach(d => d.open = true);
+  if (print) { openAll(); $$('.rv').forEach(e => e.classList.add('in')); $$('#content img').forEach(i => i.loading = 'eager'); }
+  addEventListener('beforeprint', () => { openAll(); $$('.rv').forEach(e => e.classList.add('in')); $$('#content img').forEach(i => i.loading = 'eager'); });
+  if (P.get('q')) { q.value = P.get('q'); run(); }
+  applyMode(null); spy();
+})();
+</script>
+</body>
+</html>

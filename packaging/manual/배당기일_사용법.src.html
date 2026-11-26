@@ -1,0 +1,378 @@
+<!--meta title=배당기일 관리 사용법|logo=배|hint=칸 맞추기, 이월, 결정문, 엑셀 복사|chips=칸 맞추기,키가 안 붙어요,이월,엑셀 복사,결정문,보고서-->
+{{HEAD}}
+
+<!-- ================================================================== 표지 -->
+<div class="cover" id="top-cover"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <div class="k">종합관리 · 배당기일</div>
+  <h1>배당기일 관리 사용법</h1>
+  <p>배당사건을 조회하고, 우리 회사 법조치 사건과 맞춰서, 배당을 끝까지 관리하는 방법을 화면과 함께 설명해요.</p>
+  <div class="flow">
+    <a href="#c1"><i>1</i><b>조회 · 매칭</b><span>배당사건 붙여넣기 → 사건검색 → 당사 법조치 자료와 맞추기</span></a>
+    <a href="#c2"><i>2</i><b>배당기일 현황</b><span>다가오는 배당기일을 표와 달력으로</span></a>
+    <a href="#c3"><i>3</i><b>배당 관리 대장</b><span>검수 → 발송 → 수령완료, 지우지 않고 쌓임</span></a>
+    <a href="#c4"><i>4</i><b>배당 통계</b><span>숫자를 누르면 근거 목록 · 보고서</span></a>
+  </div>
+  <div class="meta">종합관리 v{{VERSION}} 기준 · 만든 날 {{DATE}} · 화면 속 이름·번호는 모두 시연용 가짜 자료예요</div>
+</div>
+
+<div class="print-toc" id="ptoc"><h2>차례</h2><ol id="ptocl"></ol></div>
+
+<!-- ================================================================== 0. 시작하기 -->
+<section class="ch" id="c0">
+<h2><span class="no">0</span> 시작하기</h2>
+<p class="lead">무엇을 하는 기능인지, 무엇을 준비하면 되는지 먼저 봐요.</p>
+
+<h3 id="c0-1">이 기능이 하는 일</h3>
+<p>제3채무자가 공탁한 돈은 법원의 <b>배당사건(타배)</b>으로 나눠 받아요. 이 기능은 배당사건마다 아래 일을 대신해 줘요.</p>
+<ul>
+  <li>나의사건검색으로 <b>배당기일 · 관련사건 · 공탁자(제3채무자)</b>를 뽑아요.</li>
+  <li>관련사건(타채 등) 번호를 <b>당사 법조치 자료</b>와 맞춰서, 그 사건의 <b>채무자명 · 채무자키 · 법조치키 · 담당자</b>를 붙여요.</li>
+  <li>배당 한 건 한 건을 <b>검수 → 발송 → 수령완료</b>까지 대장에 쌓고, 통계와 보고서로 보여 줘요.</li>
+</ul>
+
+<h3 id="c0-2">준비물 두 가지</h3>
+<div class="grid2">
+  <div class="card"><b>① 배당사건 목록</b>채무자 · 법원 · 사건번호 세 칸이면 돼요.<br><span style="color:var(--sub);font-size:13.5px">예) 한○민 · 부산지방법원 · 2026타배99004</span></div>
+  <div class="card"><b>② 당사 법조치 자료</b><span class="tag r">꼭</span> 채무자키 · 법조치키 · 사건번호(당사 사건, 타채 등)<br><span class="tag">있으면 좋음</span> 법원 · 채무자명 · 담당자명 · 청구액</div>
+</div>
+<div class="call tip"><b class="t">팁</b><div>엑셀에서 칸을 그대로 복사해 붙여넣어도 되고, 엑셀 파일을 골라도 돼요. 머리글(칸 이름)이 달라도 <a href="#c1-5">「칸 맞추기」</a>로 맞추면 다음부터는 저절로 읽어요.</div></div>
+<div class="call warn"><b class="t">알아 두기</b><div>제3채무자는 법조치 자료에서 받지 않아요. 사건검색 결과의 <b>공탁자</b>로 채우고, 대장에서 바로 고칠 수 있어요.</div></div>
+
+<h3 id="c0-3">메뉴 위치</h3>
+<p>왼쪽 메뉴 아래쪽 <b>「배당기일」</b> 묶음에 네 화면이 있어요. 메뉴 이름이 안 보이면 묶음 이름을 눌러 펼쳐요.</p>
+<figure><img src="{{img:s02_menu}}" alt="배당기일 메뉴"><figcaption>왼쪽 메뉴의 배당기일 묶음 — <span class="n">1</span>조회·매칭 <span class="n">2</span>배당기일 현황 <span class="n">3</span>배당 관리 대장 <span class="n">4</span>배당 통계</figcaption></figure>
+<p>프로그램을 켜면 처음 나오는 <b>현황 콘솔</b>에도 <a href="#c5">「배당 할 일」</a>이 모여 있어요.</p>
+</section>
+
+<!-- ================================================================== 1. 조회 · 매칭 -->
+<section class="ch" id="c1">
+<h2><span class="no">1</span> 조회 · 매칭</h2>
+<p class="lead">배당사건을 조회하고, 당사 법조치 자료와 맞춰서, 대장으로 넘기는 화면이에요. 왼쪽 칸(1번) → 오른쪽 칸(2번) → 아래 결과 순서로 써요.</p>
+
+<h3 id="c1-1">1-1. 배당사건 넣기</h3>
+<figure><img src="{{img:s03_run_input}}" alt="배당사건 넣기"><figcaption>1번 칸에 배당사건을 넣고 사건검색을 시작해요</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>배당사건을 붙여넣어요.</b> 채무자 · 법원 · 사건번호 세 칸. 머리글이 없어도 되고, 칸 순서가 달라도 돼요. 「서울남부지법」 「2026 타배 99005」처럼 써도 알아서 맞춰 읽어요. 칸 아래에 <span class="tag g">✓ 조회 가능 n건</span>이 나오면 잘 읽힌 거예요.</div></li>
+  <li><span class="n">2</span><div><span class="btn">다시 조회할 건 고르기</span> 대장에 있는 배당사건 중 <b>다시 볼 필요가 있는 것만</b> 골라서 채워 줘요. (<a href="#c1-7">1-7</a>)</div></li>
+  <li><span class="n">3</span><div><span class="btn">엑셀 파일로</span> 엑셀 파일에서 채무자·법원·사건번호 칸만 뽑아 넣어요.</div></li>
+  <li><span class="n">4</span><div><span class="btn p">사건검색 시작</span>을 누르면 사건검색(숫자 입력) 화면으로 넘어가요.</div></li>
+</ol>
+
+<h3 id="c1-2">1-2. 사건검색 (숫자 입력)</h3>
+<p>기존 「조회하기」와 같은 화면이에요. 그림 속 숫자 6개를 넣으면 한 건씩 조회돼요.</p>
+<figure><img src="{{img:s25_captcha}}" alt="사건검색 숫자 입력"><figcaption><span class="n">1</span>배당 조회라는 안내 <span class="n">2</span>그림 속 숫자 입력</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div>위에 <b>「배당 조회예요」</b> 안내가 보여요. 다 끝나면 <span class="btn">조회·매칭으로 →</span>을 눌러 돌아가요.</div></li>
+  <li><span class="n">2</span><div>그림 속 숫자 6개를 치면 Enter 없이 바로 조회되고 다음 사건으로 넘어가요.</div></li>
+</ol>
+<div class="call warn"><b class="t">주의</b><div>자동입력방지 숫자는 프로그램이 풀지 않아요. 사람이 넣어야 해요. 조회 건수를 줄이려면 <a href="#c1-7">「다시 조회할 건 고르기」</a>를 쓰세요.</div></div>
+
+<h3 id="c1-3">1-3. 사건검색 결과 보기</h3>
+<figure><img src="{{img:s04_search_result}}" alt="사건검색 결과"><figcaption>아래 「사건검색 결과」 탭</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>사건검색 결과</b> 탭: 조회한 배당사건이 한 줄씩 나와요. 실패한 건은 <span class="tag r">찾을 수 없음</span>으로 표시돼요.</div></li>
+  <li><span class="n">2</span><div><b>배당기일</b>과 D-day. 아직 기일이 안 잡혔으면 <span class="tag o">아직 안 잡힘</span>.</div></li>
+  <li><span class="n">3</span><div><b>관련사건 (뽑은 것)</b>: 매칭에 쓸 당사 사건번호 후보(타채 등)예요. 관련사건 목록뿐 아니라 진행내용·당사자 정보 속 사건번호도 읽어요.</div></li>
+  <li><span class="n">4</span><div><b>공탁자(제3채무자)</b>: 대장의 제3채무자 칸으로 들어가요.</div></li>
+</ol>
+<p>줄 왼쪽 <b>⋮⋮</b>를 잡고 끌면 순서가 바뀌고, 오른쪽 <b>✕</b>로 그 줄을 뺄 수 있어요(되돌리기 가능).</p>
+
+<h3 id="c1-4">1-4. 당사 법조치 자료 넣기</h3>
+<figure><img src="{{img:s05_law_input}}" alt="당사 법조치 자료 넣기"><figcaption>2번 칸에 당사 법조치 자료를 넣고 자동 매칭</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>당사 법조치 자료를 붙여넣어요.</b> 채무자키 · 법조치키 · 사건번호(당사 사건)는 꼭, 법원 · 채무자명 · 담당자명 · 청구액은 있으면 같이 붙어요. 다른 칸이 섞여 있어도 괜찮아요.</div></li>
+  <li><span class="n">2</span><div><span class="btn">지난번 자료</span> 지난번에 넣은 자료를 다시 불러와요.</div></li>
+  <li><span class="n">3</span><div><span class="btn">엑셀 파일로</span> 법조치 엑셀 파일을 바로 골라요.</div></li>
+  <li><span class="n">4</span><div><span class="btn p">자동 매칭</span>을 눌러요.</div></li>
+  <li><span class="n">5</span><div>읽은 결과가 나와요. <span class="tag g">✓ 채무자키 · 법조치키 · 사건번호 칸 찾음</span>이면 준비 끝. 빨간 <span class="tag r">✕ 칸 없음</span>이 보이면 <b>「칸 맞추기」</b>를 눌러요.</div></li>
+</ol>
+
+<h3 id="c1-5">1-5. 칸 맞추기 (가장 중요)</h3>
+<p>머리글 이름이 우리가 아는 말과 다르거나(예: 「차주ID」 「항목」), 머리글 없이 값만 붙여넣으면 <b>어느 칸이 채무자키·법조치키인지 몰라요.</b> 이때 이 창이 저절로 떠요.</p>
+<figure><img src="{{img:s06_lawmap}}" alt="칸 맞추기"><figcaption>칸마다 무엇인지 골라요 — 같은 머리글이면 다음부터 자동</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div>칸 위의 고르기 상자에서 <b>무엇인지</b> 골라요. 아래에 실제 값 몇 줄이 보이니 보고 고르면 돼요. 예) 「항목」 칸의 값이 LX-05521 이면 → <b>법조치키</b>.</div></li>
+  <li><span class="n">2</span><div><b>첫 줄은 머리글</b>: 붙여넣은 첫 줄이 칸 이름이면 체크, 첫 줄부터 값이면 체크를 빼요.</div></li>
+</ol>
+<div class="call must"><b class="t">꼭</b><div><b>채무자키 · 법조치키 · 사건번호</b> 세 칸을 고르지 않으면 매칭하지 않아요. 키 없는 결과가 대장에 쌓이는 일을 막기 위해서예요.</div></div>
+<div class="call ok"><b class="t">한 번만</b><div>한 번 골라 두면 같은 머리글의 자료는 다음부터 창 없이 바로 읽어요. 바꾸고 싶으면 2번 칸 아래 「칸 맞추기」를 눌러요.</div></div>
+
+<h3 id="c1-6">1-6. 매칭 결과 보기 · 저장</h3>
+<figure><img src="{{img:s07_match}}" alt="매칭 결과"><figcaption>법조치키 하나당 한 줄 — 엑셀도 이 모양 그대로</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>매칭 결과</b> 탭: 배당사건마다 맞은 당사 사건의 키가 붙어요. 위쪽에 <span class="tag g">맞음</span> <span class="tag b">키 여러 개</span> <span class="tag o">못 찾음</span> 건수가 보여요.</div></li>
+  <li><span class="n">2</span><div><b>채무자키</b>: 한 사람에게 키가 여러 개(대출이 여러 곳)면 모두 나오고 <span class="tag b">한 사람 · 키 여러 개</span>가 붙어요.</div></li>
+  <li><span class="n">3</span><div><b>법조치키</b>와 그 아래 <b>↳ 어느 당사 사건으로 맞았는지</b>(법원 + 사건번호). 법원이 다르거나 비었는데 사건번호가 같아서 붙은 줄엔 <span class="tag o">법원 확인</span>이 붙어요 — 한 번 확인해 주세요.</div></li>
+  <li><span class="n">4</span><div><span class="btn p">②·③에 저장</span> 현황과 대장으로 넘겨요. 같은 사건은 새 줄을 만들지 않고 배당기일만 고쳐요.</div></li>
+  <li><span class="n">5</span><div><span class="btn">진단 저장</span> 키가 안 붙을 때 원인 찾기용 파일을 저장해요(사람 이름은 넣지 않음). 담당자에게 보내 주세요.</div></li>
+</ol>
+<h4>못 찾은 줄에 나오는 말</h4>
+<table><tr><th>보이는 말</th><th>뜻 · 할 일</th></tr>
+<tr><td>뽑은 관련사건 n개가 법조치 자료 사건번호에 없어요</td><td>당사 법조치 자료에 그 타채 사건이 없거나 사건번호가 달라요. 자료를 확인하거나, 대장에서 <a href="#c3-11">직접 연결</a>해요.</td></tr>
+<tr><td>사건검색 결과에서 관련사건 번호를 못 찾았어요</td><td>법원 사이트가 관련사건을 주지 않았어요. 「진단 저장」 파일을 보내 주세요.</td></tr>
+<tr><td>같은 이름 다른 키 … 사건번호 안 맞아 뺌</td><td>동명이인일 수 있어 붙이지 않았어요. 맞는 사람이면 대장에서 직접 연결해요.</td></tr></table>
+
+<h3 id="c1-7">1-7. 다시 조회할 건 고르기</h3>
+<figure><img src="{{img:s08_pick}}" alt="다시 조회할 건 고르기"><figcaption>필요한 것만 골라 숫자 입력 횟수를 줄여요</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>기일 미정 · 30일 안 기일 · 지난 조회 실패 · 새로 들어옴</b>만 골라 줘요. 체크를 빼면 그 건은 빠져요.</div></li>
+  <li><span class="n">2</span><div><b>뺀 것</b>: 수령완료 · 기일 지남(대장에서 처리) · 30일 넘게 남은 건. 다시 조회할 필요가 없어서 뺐어요.</div></li>
+</ol>
+<p><span class="btn p">고른 건 1번 칸에 넣기</span>를 누른 뒤 <span class="btn p">사건검색 시작</span>을 눌러요.</p>
+
+<h3 id="c1-8">1-8. DATA 가공 (매크로 엑셀 열기)</h3>
+<figure><img src="{{img:s09_xlsm}}" alt="DATA 가공"><figcaption><span class="n">1</span>DATA 가공 <span class="n">2</span>경로</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><span class="btn">● DATA 가공</span> 정해 둔 매크로 엑셀(.xlsm)을 엑셀로 바로 열어요. 동그라미가 <b style="color:var(--ok)">초록</b>이면 연결됨, <b style="color:var(--red)">빨강</b>이면 파일이 없어요.</div></li>
+  <li><span class="n">2</span><div><span class="btn">경로</span> 어떤 파일을 열지 정해요. 「파일 고르기」로 고르거나 경로를 넣고 「연결 확인」. 매크로를 고쳐 다른 곳에 저장했으면 「최근 연결한 파일」에서 눌러 바꿔요.</div></li>
+</ol>
+<div class="call tip"><b class="t">순서</b><div>DATA 가공 → 엑셀에서 매크로 작업 · 복호화 후 저장 → 1·2번 칸 「엑셀 파일로」로 넣기. 프로그램은 엑셀을 열어 주기만 하고 파일 안을 읽지 않아요(보안).</div></div>
+
+<h3 id="c1-9">1-9. 초기화</h3>
+<p>오른쪽 위 <span class="btn">초기화</span>는 <b>1·2번 칸과 아래 사건검색 결과 · 매칭 결과만</b> 비워요. <b>배당 관리 대장과 배당기일 현황은 그대로</b>예요. 법조치 자료는 「지난번 자료」로 다시 불러올 수 있어요.</p>
+</section>
+
+<!-- ================================================================== 2. 현황 -->
+<section class="ch" id="c2">
+<h2><span class="no">2</span> 배당기일 현황</h2>
+<p class="lead">저장한 배당사건의 다가오는 배당기일을 한눈에 봐요.</p>
+<h3 id="c2-1">2-1. 표로 보기</h3>
+<figure><img src="{{img:s10_board}}" alt="배당기일 현황 표"><figcaption>배당기일 현황</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>요약 칸</b>: 전체 · 7일 안 · 30일 안 · 우리 사건 못 찾음 · 기일 안 잡힘. 누르면 그 건만 걸러져요.</div></li>
+  <li><span class="n">2</span><div><span class="btn">표</span> <span class="btn">달력</span>으로 바꿔 봐요.</div></li>
+  <li><span class="n">3</span><div><span class="btn">배당기일순</span> <span class="btn">직접 정한 순</span> — 줄을 끌면 자동으로 「직접 정한 순」이 돼요.</div></li>
+  <li><span class="n">4</span><div><span class="btn p">엑셀로 내보내기</span> 화면 순서 그대로 엑셀로 저장해요.</div></li>
+  <li><span class="n">5</span><div><b>⋮⋮</b>를 잡고 위아래로 끌어 순서를 바꿔요. ✕로 현황에서만 뺄 수 있어요(대장은 그대로).</div></li>
+</ol>
+<h3 id="c2-2">2-2. 달력으로 보기</h3>
+<figure><img src="{{img:s11_board_cal}}" alt="배당기일 달력"><figcaption><span class="n">1</span>달력 <span class="n">2</span>다가오는 배당기일</figcaption></figure>
+<p>7일 안 기일은 빨간색으로 보여요. 달력의 사건을 누르면 표에서 그 사건만 찾아 보여 줘요.</p>
+</section>
+
+<!-- ================================================================== 3. 대장 -->
+<section class="ch" id="c3">
+<h2><span class="no">3</span> 배당 관리 대장</h2>
+<p class="lead">배당 한 건(법조치키 하나) 한 줄. 지우지 않고 계속 쌓여서, 검수부터 수령완료까지 관리해요. 엑셀처럼 고르고 복사할 수 있어요.</p>
+
+<h3 id="c3-1">3-1. 화면 보기</h3>
+<figure><img src="{{img:s12_ledger}}" alt="배당 관리 대장"><figcaption>배당 관리 대장</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>요약 칸</b>: 진행 중 · 검수 대기 · 기일 지남·발송 전 · 새로·바뀜 · 끝난 것 · 수령(이번 달/올해). 누르면 걸러져요.</div></li>
+  <li><span class="n">2</span><div><b>연도</b>를 골라요.</div></li>
+  <li><span class="n">3</span><div><b>월</b>을 고르면 그달 배당만 보여요. <b>수령완료 전인 지난 달 줄은 <span class="tag o">이월</span>로 계속 보여요</b> (예: 10월에 못 받은 건이 11월에도 보임).</div></li>
+  <li><span class="n">4</span><div><b>찾기</b>: 사건번호 · 채무자 · 채무자키 · 제3채무자.</div></li>
+  <li><span class="n">5</span><div><span class="btn">배당기일순</span> <span class="btn">직접 정한 순</span> · 옆의 <span class="btn">지운 줄 n</span>에서 지운 줄을 되살려요.</div></li>
+  <li><span class="n">6</span><div><span class="btn">붙여넣어 고치기</span> (<a href="#c3-7">3-7</a>)</div></li>
+  <li><span class="n">7</span><div><span class="btn p">엑셀로 내보내기</span> 지금 보이는 줄과 순서 그대로. 시트: 대장 · 진행 중 · 월별 수령 · 변경 기록.</div></li>
+</ol>
+
+<h3 id="c3-2">3-2. 칸 설명</h3>
+<figure><img src="{{img:s13_ledger_cols}}" alt="대장 칸"><figcaption>주요 칸</figcaption></figure>
+<table>
+<tr><th>칸</th><th>내용</th></tr>
+<tr><td><span class="n">1</span>채무자키 · 법조치키</td><td>당사 법조치 자료에서 붙은 키. 복사하기 쉽게 따로 칸이에요.</td></tr>
+<tr><td>배당법원 · 배당사건번호</td><td>배당사건(타배). 칸이 나뉘어 있어 하나씩 복사할 수 있어요.</td></tr>
+<tr><td><span class="n">2</span>당사 법원 · 당사 사건번호</td><td>매칭된 우리 사건(타채 등). 옆 <span class="btn">결정문</span>으로 결정문 PDF를 열어요.</td></tr>
+<tr><td><span class="n">3</span>제3채무자</td><td>공탁자. <b>두 번 누르면 그 자리에서 고쳐요.</b></td></tr>
+<tr><td><span class="n">4</span>단계</td><td>검수 대기 · 기일 대기 · 발송 필요 · 발송·입금 대기 · 수령완료 · 끝·배당 없음. 아래 작은 글씨는 검수 · 발송일 · 수령일.</td></tr>
+<tr><td><span class="n">5</span>배당액</td><td>배당표 금액. 수령완료하면 이 금액을 받은 것으로 쳐요 (수령액 칸은 따로 없어요).</td></tr>
+</table>
+
+<h3 id="c3-3">3-3. 단계: 검수 → 발송 → 수령완료</h3>
+<table>
+<tr><th>단계</th><th>뜻</th><th>할 일</th></tr>
+<tr><td><span class="tag o">검수 대기</span></td><td>키 · 사건 · 배당표 금액을 아직 확인 안 함</td><td>확인 후 검수 「완료」</td></tr>
+<tr><td><span class="tag">기일 대기</span></td><td>검수 끝, 배당기일 전</td><td>기일 출석 · 계산서 확인</td></tr>
+<tr><td><span class="tag r">발송 필요</span></td><td>기일이 지났는데 아직 대기</td><td>배당금교부신청서 보내고 「발송」</td></tr>
+<tr><td><span class="tag b">발송 · 입금 대기</span></td><td>교부신청서를 보냄</td><td>입금되면 「수령완료」</td></tr>
+<tr><td><span class="tag g">수령완료</span></td><td>받음 (배당액 = 받은 돈)</td><td>끝</td></tr>
+<tr><td><span class="tag">끝 · 배당 없음</span></td><td>배당액 0원으로 수령완료</td><td>끝</td></tr>
+</table>
+
+<h3 id="c3-4">3-4. 한 줄 자세히 보고 고치기</h3>
+<p>줄을 <b>두 번 누르거나</b>, 줄에 마우스를 올리면 오른쪽 끝에 나오는 <b>›</b>를 눌러요.</p>
+<figure><img src="{{img:s14_drawer}}" alt="한 줄 자세히"><figcaption>오른쪽 창에서 고치고 저장</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>검수</b>: 대기 · 완료 · 보류. 「완료」를 누르면 검수 끝으로 바뀌어요.</div></li>
+  <li><span class="n">2</span><div><b>배당액</b>: 배당표 금액을 넣어요.</div></li>
+  <li><span class="n">3</span><div><b>수령 단계</b>: 대기 · 발송 · 수령완료. 「발송」 「수령완료」를 누르면 날짜가 오늘로 채워져요. 배당이 없으면 배당액 0원으로 수령완료.</div></li>
+  <li><span class="n">4</span><div><span class="btn p">저장</span> 바뀐 것은 아래 「변경 기록」에 누가 · 언제 · 무엇을이 남아요.</div></li>
+</ol>
+<p>위쪽에서 <b>결정문 열기 · 결정문 출력</b>을 할 수 있어요. 처음 한 번은 결정문 PDF가 모인 폴더를 골라요 (파일 이름에 당사 사건번호가 들어 있으면 찾아요).</p>
+
+<h3 id="c3-5">3-5. 엑셀처럼 고르기 · 복사 · 비우기</h3>
+<figure><img src="{{img:s15_select_copy}}" alt="칸 고르기"><figcaption>칸을 끌어 고르면 아래에 막대가 떠요</figcaption></figure>
+<ul>
+  <li><b>칸을 끌어서</b> 여러 칸을 골라요. <kbd>Shift</kbd>+누르기로 넓히고, 화살표로 움직여요.</li>
+  <li><b>머리글을 누르면 그 열 전체</b>가 골라져요. 옆으로 끌면 여러 열.</li>
+  <li><kbd>Ctrl</kbd>+<kbd>C</kbd> → 엑셀에 붙이면 칸 그대로 들어가요. 값은 원래 값(날짜 2026-11-15, 금액은 쉼표 없는 숫자)이라 엑셀에서 바로 계산돼요. 「결정문」 같은 버튼 글자는 들어가지 않아요.</li>
+  <li><span class="n">1</span> 아래 막대: 고른 줄×칸 · <b>배당액 합계</b> · <span class="btn">복사</span> <span class="btn">칸 비우기</span> <span class="btn">머리글 포함 복사</span></li>
+  <li><kbd>Delete</kbd>로 고른 칸의 값을 비워요. 배당법원 · 배당사건번호 · 단계는 지워지지 않아요. 아래에 「되돌리기」가 나와요.</li>
+</ul>
+
+<h3 id="c3-6">3-6. 제3채무자 바로 고치기</h3>
+<figure><img src="{{img:s16_third}}" alt="제3채무자 바로 고치기"><figcaption>제3채무자 칸을 두 번 누르면 바로 입력</figcaption></figure>
+<p>제3채무자 칸을 <b>두 번 누르면</b> 그 자리에서 고칠 수 있어요. <kbd>Enter</kbd> 저장 · <kbd>Esc</kbd> 취소 · 칸 밖을 누르면 저장. 다른 칸을 두 번 누르면 오른쪽 자세히 창이 열려요.</p>
+
+<h3 id="c3-7">3-7. 붙여넣어 고치기 (엑셀 → 대장)</h3>
+<figure><img src="{{img:s17_paste}}" alt="붙여넣어 고치기"><figcaption>바뀔 칸을 먼저 보여 주고, 고른 것만 반영</figcaption></figure>
+<ol>
+  <li>엑셀에서 <b>머리글째</b> 복사해요. 줄을 찾는 칸(<b>법조치키</b> 또는 배당사건번호 · 채무자키)과 바꿀 칸이 있어야 해요.</li>
+  <li>대장에서 <kbd>Ctrl</kbd>+<kbd>V</kbd> 하거나 <span class="btn">붙여넣어 고치기</span>를 눌러 붙여넣고 「미리 보기」.</li>
+  <li><b>지금 → 바뀔 값</b>을 확인하고 체크한 것만 반영해요. 같은 값은 건너뛰고, 못 찾은 줄은 빨간색으로 알려 줘요.</li>
+</ol>
+<p>바꿀 수 있는 칸: 배당액 · 청구액 · 제3채무자 · 담당자 · 수령 단계 · 발송일 · 수령일 · 배당기일 · 메모 · 검수</p>
+
+<h3 id="c3-8">3-8. 여러 줄 한꺼번에</h3>
+<figure><img src="{{img:s18_bulk}}" alt="여러 줄 한꺼번에"><figcaption><span class="n">2</span>줄 앞 체크 → <span class="n">1</span>위에 검은 막대</figcaption></figure>
+<p>줄 앞 체크로 여러 줄을 고르면 위에 막대가 생겨요: <span class="btn">검수 완료</span> <span class="btn">발송 처리</span> <span class="btn">수령완료 처리</span> <span class="btn">배당 없음 (0원)</span> <span class="btn">결정문 모아 열기</span> <span class="btn">고른 줄 복사</span> <span class="btn">고른 줄 엑셀로</span></p>
+
+<h3 id="c3-9">3-9. 지우기 · 되살리기 · 순서 바꾸기</h3>
+<ul>
+  <li>줄에 마우스를 올리면 오른쪽 끝에 <b>✕</b>(지우기)와 <b>›</b>(자세히)가 나와요.</li>
+  <li>지운 줄은 바로 사라지지 않고 <span class="btn">지운 줄 n</span>으로 옮겨져요. 거기서 <b>↺</b>로 되살려요. 지우자마자 아래 「되돌리기」도 돼요.</li>
+  <li>줄 맨 앞 <b>⋮⋮</b>를 잡고 위아래로 끌면 순서가 바뀌고, 엑셀도 그 순서로 나가요.</li>
+</ul>
+
+<h3 id="c3-10">3-10. 결정문 · 배당금교부신청서</h3>
+<ul>
+  <li><b>결정문</b>: 당사 사건번호 옆 <span class="btn">결정문</span>, 자세히 창의 「결정문 열기 · 출력」, 여러 줄 막대의 「결정문 모아 열기」. 결정문 폴더에서 파일 이름에 사건번호가 들어간 PDF를 찾아요. 없으면 <span class="tag o">파일 없음</span>.</li>
+  <li><b>배당금교부신청서</b>: 회사 양식을 「서류 작성 → 양식함」에 넣으면 이 줄 값(법원 · 사건번호 · 제3채무자 · 채무자 · 배당액)으로 채워져요.</li>
+</ul>
+
+<h3 id="c3-11">3-11. 가져오기 · 못 찾은 건 연결 · 다른 값</h3>
+<div class="grid2">
+  <div class="card"><b>기존 엑셀 대장 가져오기</b>지금 쓰던 배당 엑셀을 넣으면 칸 이름으로 알아서 읽어요. 같은 줄(법원+사건번호+법조치키)은 빈 칸만 채우고, 값이 다르면 어느 쪽을 쓸지 물어봐요.</div>
+  <div class="card"><b>우리 사건 못 찾은 줄</b>자세히 창 위쪽 「법조치 자료에서 찾기」로 골라 연결하면 다음 매칭 때 자동으로 연결돼요. 「우리 사건 아님」은 다음 조회·매칭에서 빼요.</div>
+  <div class="card"><b>법조치 자료와 다른 값</b>다시 매칭했을 때 담당자 · 채무자키가 대장과 다르면 위에 노란 알림이 떠요. 「확인하고 반영」에서 고른 것만 바꿔요.</div>
+  <div class="card"><b>키 없던 줄</b>예전에 키 없이 들어간 배당사건은 다시 매칭하면 그 줄에 채무자키 · 법조치키가 채워져요(새 줄을 만들지 않음).</div>
+</div>
+</section>
+
+<!-- ================================================================== 4. 통계 -->
+<section class="ch" id="c4">
+<h2><span class="no">4</span> 배당 통계</h2>
+<p class="lead">대장에 쌓인 배당으로 회수 실적 · 앞으로 들어올 돈 · 미수령 · 처리 속도를 봐요. <b>숫자나 막대를 누르면 그 숫자를 만든 줄 목록</b>이 나와요.</p>
+
+<h3 id="c4-1">4-1. 대시보드 읽기</h3>
+<figure><img src="{{img:s19_stats}}" alt="배당 통계"><figcaption>배당 통계 위쪽</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>기간</b>(최근 12개월 · 올해 · 작년 · 전체) · <b>기준</b> · <b>금액/건수</b>. <b>배당기일 기준</b>은 「언제 배당됐나」, <b>수령일 기준</b>은 「언제 돈이 들어왔나(회수 실적)」예요.</div></li>
+  <li><span class="n">2</span><div><b>요약 칸</b>: 배당액(전년 대비) · 회수액 · 배당률(배당액÷청구액) · 미수령 잔액(31일 넘은 금액은 빨강) · 배당 없음 · 기일→수령 걸린 날. 누르면 근거 목록.</div></li>
+  <li><span class="n">3</span><div><span class="btn">대시보드 설정</span> (<a href="#c4-5">4-5</a>)</div></li>
+  <li><span class="n">4</span><div><span class="btn p">보고서 (HTML)</span> (<a href="#c4-6">4-6</a>)</div></li>
+</ol>
+<p>월별 막대는 <b style="color:#256abf">진한 파랑 = 수령</b>, <b style="color:#5f8fcf">옅은 파랑 = 아직 안 받음</b>이에요. 막대에 마우스를 올리면 자세한 값, 누르면 그달 목록이 나와요.</p>
+
+<h3 id="c4-2">4-2. 미수령 경과 · 오래된 미수령</h3>
+<figure><img src="{{img:s20_stats_lower}}" alt="미수령 경과"><figcaption><span class="n">1</span>미수령 경과 <span class="n">2</span>오래된 미수령</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>미수령 경과</b>: 배당기일이 지났는데 아직 안 받은 돈을 발송 전 · 발송 0~14일 · 15~30일 · 31~60일 · 61일 넘음으로 나눠요. 31일부터 <span class="tag r">확인 필요</span>. <b>줄을 누르면 목록이 나오고 거기서 바로 발송 · 수령완료 처리</b>할 수 있어요.</div></li>
+  <li><span class="n">2</span><div><b>오래된 미수령</b>: 조치가 필요한 순서. 누르면 대장에서 그 줄이 열려요.</div></li>
+</ol>
+
+<h3 id="c4-3">4-3. 제3채무자별 · 담당자별 · 법원별</h3>
+<figure><img src="{{img:s21_stats_panels}}" alt="기준별"><figcaption><span class="n">1</span>제3채무자별 <span class="n">2</span>담당자별 <span class="n">3</span>법원별</figcaption></figure>
+<ul>
+  <li><b>제3채무자별</b>: 배당률 · 0원 비율 — 어디서 실제로 회수가 되는지. 압류 대상 고를 때 참고해요.</li>
+  <li><b>담당자별</b>: 기일→발송 걸린 날 · 남은 할 일.</li>
+  <li><b>법원별</b>: 기일→수령 걸린 날.</li>
+  <li>오른쪽 위 <span class="btn">막대</span> <span class="btn">표</span>로 바꿔 볼 수 있어요. 줄을 누르면 근거 목록, 목록 창의 「이 조건으로 대시보드 거르기」로 전체를 걸러요.</li>
+</ul>
+
+<h3 id="c4-4">4-4. 근거 목록 (검수 · 바로 처리)</h3>
+<figure><img src="{{img:s22_drill}}" alt="근거 목록"><figcaption>숫자를 누르면 오른쪽에 그 숫자의 줄 목록</figcaption></figure>
+<ol class="steps">
+  <li><span class="n">1</span><div><b>검수 줄</b>: <span class="tag g">✓ 목록 합계 = 대시보드 값과 같아요</span>. 다르면 주황 경고가 떠요.</div></li>
+  <li><span class="n">2</span><div><b>바로 처리</b>: 줄을 골라 <span class="btn p">고른 것 발송 처리</span> / <span class="btn p">고른 것 수령완료</span>, <span class="btn">복사 (엑셀 칸)</span> <span class="btn">엑셀로</span>. 처리하면 대시보드가 다시 계산돼요.</div></li>
+  <li><span class="n">3</span><div><b>합계</b> 줄. 줄을 두 번 누르면 대장에서 열려요.</div></li>
+</ol>
+
+<h3 id="c4-5">4-5. 대시보드 설정</h3>
+<figure><img src="{{img:s23_dashset}}" alt="대시보드 설정"><figcaption>칸 보이기 · 순서 · 요약 칸 · 기준 값</figcaption></figure>
+<ul>
+  <li><b>보일 칸과 순서</b>: 켜고 끄고, ↑↓로 순서. 짝인 칸을 숨기면 남은 칸이 넓어져요.</li>
+  <li><b>요약 칸</b> 4~8개: 배당액 · 회수액 · 배당률 · 미수령 잔액 · 배당 없음 · 기일→수령 · 건수 · 건당 배당액 · 회수율.</li>
+  <li><b>기준 값</b>: 처음 열 때 기간·기준, 미수령 「확인 필요」 기준(15/31/61일), 보일 곳 수, 오래된 미수령 줄 수, 입금 없음 기준일. 채권마다 따로 저장돼요.</li>
+</ul>
+
+<h3 id="c4-6">4-6. 보고서 (HTML · PDF)</h3>
+<figure><img src="{{img:s24_report}}" alt="보고서"><figcaption>지금 고른 기간 · 기준 · 조건 그대로</figcaption></figure>
+<p><span class="btn p">HTML로 저장</span> → 한 파일이라 인터넷 없이 열리고 메일로 보내도 돼요. 파일을 열어 <span class="btn p">인쇄 · PDF로 저장</span>을 누르면 A4로 인쇄·PDF가 돼요.</p>
+<p>구성: 한눈에 보기(결론 5줄) → 요약 6칸 → 월별 → 앞으로 들어올 돈 · 미수령 경과 → 조치 필요 목록 → 제3채무자 · 법원 · 담당자 표 → 용어. <b>채무자 이름은 넣지 않고 채무자키만</b> 넣어요.</p>
+</section>
+
+<!-- ================================================================== 5. 오늘 할 일 -->
+<section class="ch" id="c5">
+<h2><span class="no">5</span> 오늘 할 일 (현황 콘솔)</h2>
+<p class="lead">프로그램을 켜면 나오는 첫 화면에 배당 할 일이 모여요.</p>
+<figure><img src="{{img:s01_console}}" alt="배당 할 일"><figcaption><span class="n">1</span>배당 할 일 <span class="n">2</span>배당기일 메뉴</figcaption></figure>
+<table>
+<tr><th>칸</th><th>무엇</th></tr>
+<tr><td>7일 안 배당기일</td><td>출석 · 계산서 확인</td></tr>
+<tr><td>기일 지남 · 발송 전</td><td>배당금교부신청서 보내기</td></tr>
+<tr><td>발송 후 n일 넘게 입금 없음</td><td>입금 확인 · 법원 · 제3채무자 연락. n은 「발송→입금 중앙값 × 1.5」로 자동, 칸에서 바꿀 수 있어요.</td></tr>
+<tr><td>검수 대기</td><td>키 · 사건 · 배당표 금액 확인</td></tr>
+<tr><td>기일 · 값 바뀐 건</td><td>다시 조회로 기일이 바뀌었거나 법조치 자료와 값이 다름</td></tr>
+</table>
+<p><b>내 것만</b>은 설정의 「내 이름」과 담당자명이 같은 줄이에요. <b>전체</b>로 바꾸면 모든 담당자. 항목을 누르면 대장에서 그 줄이 열려요.</p>
+</section>
+
+<!-- ================================================================== 6. 문제 해결 -->
+<section class="ch" id="c6">
+<h2><span class="no">6</span> 자주 묻는 질문 · 문제 해결</h2>
+<details id="q1"><summary>매칭은 됐는데 채무자키 · 법조치키가 비어 있어요 (키가 안 붙어요)</summary>
+<p>당사 법조치 자료의 <b>칸을 못 알아본 것</b>이 원인이에요. 2번 칸 아래 「칸 맞추기」를 눌러 채무자키 · 법조치키 · 사건번호 칸을 골라 주세요(<a href="#c1-5">1-5</a>). 한 번 고르면 다음부터 자동이에요. 그래도 안 되면 매칭 결과의 「진단 저장」 파일을 보내 주세요.</p></details>
+<details id="q2"><summary>배당사건이 「못 찾음」으로 나와요</summary>
+<p>못 찾은 줄의 노란 글씨를 보세요. 「뽑은 관련사건이 법조치 자료에 없어요」면 법조치 자료에 그 타채 사건이 있는지, 사건번호가 같은지 확인해요. 「관련사건 번호를 못 찾았어요」면 진단 저장 파일을 보내 주세요. 맞는 사건을 알면 대장에서 직접 연결할 수 있어요(<a href="#c3-11">3-11</a>).</p></details>
+<details id="q3"><summary>「법원 확인」 표시는 뭔가요?</summary>
+<p>당사 법조치 자료의 법원이 비어 있거나 관련사건의 법원과 달랐는데, 사건번호가 같아서 붙인 줄이에요. 같은 번호가 다른 법원에 있을 수 있으니 한 번 확인해 주세요.</p></details>
+<details id="q4"><summary>새 판을 받았는데 화면이 예전 그대로예요</summary>
+<p>새 「종합관리.exe」를 한 번 실행하세요. 예전 exe를 실행하면 예전 화면이 나와요. 왼쪽 아래 판 번호(v{{VERSION}} 등)로 확인할 수 있어요.</p></details>
+<details id="q5"><summary>지난 달 사건이 이번 달에 보여요</summary>
+<p>수령완료 전인 줄은 다음 달에도 <span class="tag o">이월</span>로 계속 보여요. 수령완료하면 원래 달에 「끝난 것」으로 남아요.</p></details>
+<details id="q6"><summary>결정문이 안 열려요</summary>
+<p>처음 한 번은 결정문 PDF가 모인 폴더를 골라야 해요. 파일 이름에 당사 사건번호(예: 2025타채99001)가 들어 있어야 찾을 수 있어요.</p></details>
+<details id="q7"><summary>숫자 입력(자동입력방지)을 줄이고 싶어요</summary>
+<p>「다시 조회할 건 고르기」를 쓰면 기일 미정 · 30일 안 · 실패 · 새로 들어온 건만 골라 줘요(<a href="#c1-7">1-7</a>). 조회 주기를 정해 두면(예: 월·목) 더 줄일 수 있어요.</p></details>
+<details id="q8"><summary>잘못 지웠어요</summary>
+<p>지운 직후엔 아래 「되돌리기」, 나중에는 대장의 「지운 줄 n」에서 ↺로 되살려요. 칸 비우기도 되돌리기가 돼요. 모든 변경은 줄마다 「변경 기록」에 남아요.</p></details>
+<details id="q9"><summary>대장을 다른 담당자와 같이 쓸 수 있나요?</summary>
+<p>자료 폴더는 한 PC에서 쓰는 것을 권해요. 다른 PC가 같은 자료 폴더를 쓰면 화면 위에 알려 줘요. 대장은 엑셀로 내보내 공유할 수 있어요.</p></details>
+</section>
+
+<!-- ================================================================== 7. 단축키 · 용어 -->
+<section class="ch" id="c7">
+<h2><span class="no">7</span> 단축키 · 용어</h2>
+<h3 id="c7-1">7-1. 단축키 (배당 관리 대장)</h3>
+<table>
+<tr><th>누르기</th><th>하는 일</th></tr>
+<tr><td>칸 끌기 · <kbd>Shift</kbd>+누르기 · 화살표</td><td>칸 고르기 · 넓히기 · 움직이기</td></tr>
+<tr><td>머리글 누르기</td><td>그 열 전체 고르기</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>고른 칸 복사 (엑셀 칸 그대로)</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>V</kbd></td><td>붙여넣어 고치기 열기</td></tr>
+<tr><td><kbd>Delete</kbd></td><td>고른 칸 비우기 (되돌리기 가능)</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd> · <kbd>Esc</kbd></td><td>전체 고르기 · 고르기 풀기</td></tr>
+<tr><td>제3채무자 두 번 누르기</td><td>그 자리에서 고치기 (<kbd>Enter</kbd> 저장 · <kbd>Esc</kbd> 취소)</td></tr>
+<tr><td>다른 칸 두 번 누르기</td><td>오른쪽 자세히 창</td></tr>
+<tr><td><kbd>Alt</kbd>+<kbd>←</kbd></td><td>앞 화면으로</td></tr>
+</table>
+<h3 id="c7-2">7-2. 용어 풀이</h3>
+<table>
+<tr><th>말</th><th>뜻</th></tr>
+<tr><td>배당사건 (타배)</td><td>제3채무자가 공탁한 돈을 법원이 채권자들에게 나누는 사건</td></tr>
+<tr><td>관련사건 · 당사 사건</td><td>배당사건과 이어진 우리 회사의 압류·추심 사건(타채 등)</td></tr>
+<tr><td>공탁자 · 제3채무자</td><td>돈을 공탁한 곳 (보통 회사·은행)</td></tr>
+<tr><td>채무자키 · 법조치키</td><td>당사 법조치 자료의 고유 번호. 매칭되면 배당 줄에 붙어요</td></tr>
+<tr><td>배당액</td><td>배당표에 적힌 우리 몫. 수령완료하면 받은 돈</td></tr>
+<tr><td>회수율</td><td>회수액 ÷ 배당액</td></tr>
+<tr><td>배당률</td><td>배당액 ÷ 청구액(채권계산서 금액)</td></tr>
+<tr><td>미수령 잔액</td><td>배당기일이 지났는데 아직 안 받은 배당액</td></tr>
+<tr><td>이월</td><td>지난 달 배당인데 수령완료 전이라 이번 달에도 보이는 줄</td></tr>
+<tr><td>걸린 날</td><td>날짜 사이 날 수의 중앙값 (튀는 값에 덜 흔들림)</td></tr>
+</table>
+<div class="call tip"><b class="t">문의</b><div>문제가 생기면 매칭 결과의 「진단 저장」 파일, 또는 프로그램 자가진단 파일(바탕화면 「종합관리_자가진단.txt」)을 담당자에게 보내 주세요.</div></div>
+</section>
+
+{{FOOT}}
