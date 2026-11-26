@@ -1,0 +1,16 @@
+build/
+dist/
+.tools/
+launcher/payload.zip
+launcher/version.txt
+launcher/*.syso
+__pycache__/
+*.pyc
+.DS_Store
+file_toolkit/
+*_시안.html
+
+# 회수 분석 시안 단계별 사본 · 비교 그림 · 예전 양식
+압류회수분석_시안_*.html
+시안_확인할것/
+법조치회수분석_공통양식_*.xlsx
